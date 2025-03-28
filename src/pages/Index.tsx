@@ -1,8 +1,10 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import WaveShape from '@/components/WaveShape';
+import Testimonials from '@/components/Testimonials';
+import Reviews from '@/components/Reviews';
+import TravelerCenter from '@/components/TravelerCenter';
 import { Button } from '@/components/ui/button';
 import { Plane, Globe, CreditCard, Shield } from 'lucide-react';
 
@@ -99,6 +101,15 @@ const Index = () => {
             </Link>
           </div>
         </section>
+
+        {/* Traveler Center Section */}
+        <TravelerCenter />
+        
+        {/* Testimonials Section */}
+        <Testimonials />
+        
+        {/* Reviews Section */}
+        <Reviews />
       </main>
       
       {/* Footer */}

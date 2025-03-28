@@ -35,7 +35,7 @@ const Testimonials = () => {
                 <div key={index} className="min-w-full px-12">
                   <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
                     {testimonial.map((item, idx) => (
-                      <div key={idx} className="bg-gradient-to-b from-[item.topColor] to-white rounded-lg shadow-md overflow-hidden relative">
+                      <div key={idx} className="bg-gradient-to-b from-[#ffb347] to-white rounded-lg shadow-md overflow-hidden relative">
                         <div className="h-56 bg-cover bg-center" style={{ backgroundImage: `url(${item.image})` }}>
                           <div className="absolute top-0 left-0 w-full bg-gradient-to-b from-black/50 to-transparent p-4 text-white">
                             <p className="font-semibold">{item.name}</p>
