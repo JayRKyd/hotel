@@ -7,6 +7,7 @@ import WhyChooseUs from '@/components/WhyChooseUs';
 import Testimonials from '@/components/Testimonials';
 import TravelerCenter from '@/components/TravelerCenter';
 import Reviews from '@/components/Reviews';
+import DestinationCard from '@/components/DestinationCard';
 
 const DetailedQuote = () => {
   const navigate = useNavigate();
@@ -118,47 +119,110 @@ const DetailedQuote = () => {
             </div>
           </div>
           
-          {/* Destination cards */}
+          {/* Enhanced Destination cards */}
           <div className="mt-12 space-y-4">
-            {destinations.map((dest, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden">
-                <div 
-                  className="h-40 bg-cover bg-center relative" 
-                  style={{ backgroundImage: `url(${dest.image})` }}
-                >
-                  <div className="absolute inset-0 bg-black bg-opacity-30 flex items-end">
-                    <div className="p-4 text-white">
-                      <h3 className="text-2xl font-bold">{dest.name}</h3>
-                      <div className="text-sm">
-                        <p>Check-in date: {dest.checkIn}</p>
-                        <p>Check-out date: {dest.checkOut}</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="absolute top-3 left-3 bg-[#333333] bg-opacity-80 text-white px-3 py-1 rounded-full text-sm">
-                    <span className="text-[#00b6de] mr-1">★</span> Recommended Places
-                  </div>
-                </div>
-                
-                {dest.hotels.map((hotel, idx) => (
-                  <div key={idx} className="border-t border-gray-200 p-3 flex justify-between items-center">
-                    <div className="text-sm">
-                      <p className="text-gray-600">Check-in: {hotel.checkIn} • Check-out: {hotel.checkOut} • Nights: {hotel.nights}</p>
-                    </div>
-                    <div className="flex items-center">
-                      <div className="flex">
-                        {Array.from({ length: hotel.stars }).map((_, i) => (
-                          <Star key={i} size={16} className="text-yellow-400 fill-current" />
-                        ))}
-                      </div>
-                      <span className="ml-2 bg-[#ffbb00] text-white px-3 py-1 rounded-full text-sm truncate max-w-[200px]">
-                        {hotel.name}
-                      </span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            ))}
+            {/* Bangkok */}
+            <DestinationCard
+              destination="Bangkok"
+              checkIn="18-04-2025"
+              checkOut="21-04-2025"
+              isRecommended={true}
+              hotels={[
+                {
+                  name: "Centara Watergate Pavilion Hotel Bangkok (VIP)",
+                  stars: 5,
+                  checkIn: "18-04-2023",
+                  checkOut: "21-04-2023",
+                  image: "https://images.unsplash.com/photo-1563911302283-d2bc129e7570?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+                  rating: {
+                    score: 8.7,
+                    label: "Excellent",
+                    reviews: 1406
+                  },
+                  description: "This modern hotel with a beautiful rooftop offers luxury and comfort in the heart of Bangkok. It's a great spot for tourists looking for easy access to shopping malls and restaurants.",
+                  amenities: ["Free WiFi", "Pool", "Spa", "Restaurant", "Parking", "Air conditioning"]
+                }
+              ]}
+              onViewMap={() => console.log("View map clicked")}
+            />
+            
+            {/* Krabi */}
+            <DestinationCard
+              destination="Krabi"
+              checkIn="21-04-2025"
+              checkOut="24-04-2025"
+              isRecommended={true}
+              hotels={[
+                {
+                  name: "HOTEL DUSIT THANI",
+                  stars: 5,
+                  checkIn: "21-04-2023",
+                  checkOut: "24-04-2023",
+                  image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+                  rating: {
+                    score: 9.1,
+                    label: "Exceptional",
+                    reviews: 2103
+                  },
+                  description: "Situated near the beach, this luxury resort offers stunning views of the ocean and limestone cliffs. Perfect for couples and families looking for a relaxing getaway.",
+                  amenities: ["Beachfront", "Pool", "Spa", "Free breakfast", "Restaurant", "Bar"]
+                }
+              ]}
+              onViewMap={() => console.log("View map clicked")}
+            />
+            
+            {/* Phuket */}
+            <DestinationCard
+              destination="Phuket"
+              checkIn="24-04-2025"
+              checkOut="30-04-2025"
+              isRecommended={true}
+              hotels={[
+                {
+                  name: "Anantara ElevEast Pattaya",
+                  stars: 5,
+                  checkIn: "24-04-2023",
+                  checkOut: "30-04-2023",
+                  image: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+                  rating: {
+                    score: 9.3,
+                    label: "Exceptional",
+                    reviews: 1832
+                  },
+                  description: "Luxurious beachfront resort with private pool villas and world-class dining options. Offers a range of activities and excursions to explore the beauty of Phuket.",
+                  amenities: ["Private beach", "Infinity pool", "Spa", "Fine dining", "Water sports", "Kids club"]
+                },
+                {
+                  name: "The Kee Resort & Spa Patong",
+                  stars: 4,
+                  checkIn: "24-04-2023",
+                  checkOut: "30-04-2023",
+                  image: "https://images.unsplash.com/photo-1570213489059-0aac6626cade?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1475&q=80",
+                  rating: {
+                    score: 8.8,
+                    label: "Excellent",
+                    reviews: 2574
+                  },
+                  description: "Located in the heart of Patong, this modern resort offers easy access to the beach, shopping, and nightlife. Features a rooftop pool with panoramic views.",
+                  amenities: ["Rooftop pool", "Spa", "Restaurant", "Bar", "Fitness center", "Free WiFi"]
+                },
+                {
+                  name: "Woraburi Pattaya Hotel & Resort",
+                  stars: 4,
+                  checkIn: "24-04-2023",
+                  checkOut: "30-04-2023",
+                  image: "https://images.unsplash.com/photo-1582719508461-905c673771fd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1525&q=80",
+                  rating: {
+                    score: 8.5,
+                    label: "Very Good",
+                    reviews: 1942
+                  },
+                  description: "Comfortable hotel with traditional Thai architecture and a relaxing atmosphere. Offers good value for money with convenient location near attractions.",
+                  amenities: ["Pool", "Restaurant", "Room service", "Garden", "Airport shuttle", "Free WiFi"]
+                }
+              ]}
+              onViewMap={() => console.log("View map clicked")}
+            />
           </div>
           
           {/* Terms and conditions */}
@@ -215,67 +279,5 @@ const userInfo = {
     minutes: 35
   }
 };
-
-const destinations = [
-  {
-    name: "Bangkok",
-    checkIn: "18-04-2025",
-    checkOut: "21-04-2025",
-    image: "https://images.unsplash.com/photo-1508009603885-50cf7c8dd0d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-    hotels: [
-      {
-        name: "Centara Watergate Pavilion Hotel Bangkok (VIP)",
-        stars: 5,
-        checkIn: "18-04-2023",
-        checkOut: "21-04-2023",
-        nights: 3
-      }
-    ]
-  },
-  {
-    name: "Krabi",
-    checkIn: "21-04-2025",
-    checkOut: "24-04-2025",
-    image: "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1539&q=80",
-    hotels: [
-      {
-        name: "HOTEL DUSIT THANI",
-        stars: 5,
-        checkIn: "21-04-2023",
-        checkOut: "24-04-2023",
-        nights: 3
-      }
-    ]
-  },
-  {
-    name: "Phuket",
-    checkIn: "24-04-2025",
-    checkOut: "30-04-2025",
-    image: "https://images.unsplash.com/photo-1589394815804-964ed0060bdd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-    hotels: [
-      {
-        name: "Anantara ElevEast Pattaya",
-        stars: 5,
-        checkIn: "24-04-2023",
-        checkOut: "30-04-2023",
-        nights: 6
-      },
-      {
-        name: "Woraburi Pattaya Hotel & Resort",
-        stars: 5,
-        checkIn: "24-04-2023",
-        checkOut: "30-04-2023",
-        nights: 6
-      },
-      {
-        name: "The Kee Resort & Spa Patong",
-        stars: 5,
-        checkIn: "24-04-2023",
-        checkOut: "30-04-2023",
-        nights: 6
-      }
-    ]
-  }
-];
 
 export default DetailedQuote;
