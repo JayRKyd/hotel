@@ -1,9 +1,18 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
 
 const Testimonials = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  
+  // Auto-rotate testimonials
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex(prev => (prev === testimonials.length - 1 ? 0 : prev + 1));
+    }, 8000);
+    
+    return () => clearInterval(interval);
+  }, []);
   
   const handlePrev = () => {
     setActiveIndex(prev => (prev === 0 ? testimonials.length - 1 : prev - 1));
@@ -14,30 +23,32 @@ const Testimonials = () => {
   };
   
   return (
-    <section className="py-16 bg-white">
+    <section className="py-16 bg-gradient-to-b from-white to-maswadeh-light">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-12">Our Clients Testimonials</h2>
+        <h2 className="text-3xl font-bold text-center mb-12 font-playfair">Our Clients Testimonials</h2>
         
         <div className="relative">
           <button 
             onClick={handlePrev}
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full p-2 shadow-md"
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full p-2 shadow-md hover:bg-maswadeh-light transition-colors"
+            aria-label="Previous testimonials"
           >
             <ChevronLeft size={24} />
           </button>
           
           <div className="overflow-hidden relative">
             <div 
-              className="flex transition-transform duration-500 ease-in-out"
+              className="flex transition-transform duration-700 ease-in-out"
               style={{ transform: `translateX(-${activeIndex * 100}%)` }}
             >
               {testimonials.map((testimonial, index) => (
                 <div key={index} className="min-w-full px-12">
                   <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
                     {testimonial.map((item, idx) => (
-                      <div key={idx} className="bg-gradient-to-b from-[#ffb347] to-white rounded-lg shadow-md overflow-hidden relative">
-                        <div className="h-56 bg-cover bg-center" style={{ backgroundImage: `url(${item.image})` }}>
-                          <div className="absolute top-0 left-0 w-full bg-gradient-to-b from-black/50 to-transparent p-4 text-white">
+                      <div key={idx} className="bg-gradient-to-b from-[#ffb347] to-white rounded-lg shadow-md overflow-hidden relative transform transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+                        <div className="h-56 bg-cover bg-center relative" style={{ backgroundImage: `url(${item.image})` }}>
+                          <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-transparent"></div>
+                          <div className="absolute top-0 left-0 w-full p-4 text-white">
                             <p className="font-semibold">{item.name}</p>
                             <div className="flex">
                               {Array.from({ length: 5 }).map((_, i) => (
@@ -48,7 +59,7 @@ const Testimonials = () => {
                         </div>
                         <div className="p-4">
                           <p className="text-sm text-gray-700 line-clamp-4">{item.text}</p>
-                          <a href="#" className="text-[#00b6de] text-sm font-medium mt-2 inline-block">Read More</a>
+                          <a href="#" className="text-maswadeh-cyan hover:text-maswadeh-blue text-sm font-medium mt-2 inline-block transition-colors">Read More</a>
                         </div>
                       </div>
                     ))}
@@ -60,7 +71,8 @@ const Testimonials = () => {
           
           <button 
             onClick={handleNext}
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full p-2 shadow-md"
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full p-2 shadow-md hover:bg-maswadeh-light transition-colors"
+            aria-label="Next testimonials"
           >
             <ChevronRight size={24} />
           </button>
@@ -70,9 +82,10 @@ const Testimonials = () => {
               <button
                 key={index}
                 onClick={() => setActiveIndex(index)}
-                className={`w-3 h-3 rounded-full ${
-                  index === activeIndex ? 'bg-[#00b6de]' : 'bg-gray-300'
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  index === activeIndex ? 'bg-maswadeh-cyan w-6' : 'bg-gray-300'
                 }`}
+                aria-label={`Go to testimonial set ${index + 1}`}
               />
             ))}
           </div>
