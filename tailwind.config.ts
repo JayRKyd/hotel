@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,6 +62,13 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				// Maswadeh brand colors
+				maswadeh: {
+					blue: '#001e64', // deep blue
+					cyan: '#00b6de', // bright cyan/blue
+					orange: '#ff7033', // vibrant orange
+					light: '#e6f7fc', // light blue/cyan
 				}
 			},
 			borderRadius: {
