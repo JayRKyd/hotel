@@ -13,22 +13,25 @@ const Quote = () => {
       <Header />
       
       <main className="flex-grow">
-        {/* Hero Section */}
-        <section className="relative bg-maswadeh-blue py-16 px-4 text-white">
+        {/* Hero Section - Enhanced with more height and spacing */}
+        <section className="relative bg-maswadeh-blue py-24 px-4 text-white min-h-[60vh] flex items-center">
           <div className="container mx-auto text-center relative z-10">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">Get Your Travel Quote</h1>
-            <p className="text-xl max-w-2xl mx-auto mb-6">
+            <h1 className="text-5xl md:text-6xl font-bold mb-6">Get Your Travel Quote</h1>
+            <p className="text-xl md:text-2xl max-w-3xl mx-auto mb-8">
               Let us help you plan your perfect journey with competitive prices and personalized service
             </p>
             <Link to="/detailed-quote">
-              <Button className="bg-maswadeh-orange hover:bg-orange-600 text-white">
+              <Button className="bg-maswadeh-orange hover:bg-orange-600 text-white px-8 py-6 text-lg">
                 See Example Quote
               </Button>
             </Link>
           </div>
           {/* Background elements */}
-          <div className="absolute top-0 right-0 w-64 h-64 opacity-10">
-            <Plane size={240} />
+          <div className="absolute top-1/4 right-0 w-80 h-80 opacity-10">
+            <Plane size={300} />
+          </div>
+          <div className="absolute bottom-0 left-10 w-64 h-64 opacity-5">
+            <Plane size={240} className="rotate-45" />
           </div>
         </section>
         
