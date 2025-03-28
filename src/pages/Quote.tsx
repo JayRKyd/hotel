@@ -1,9 +1,11 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import QuoteBox from '@/components/QuoteBox';
 import WaveShape from '@/components/WaveShape';
 import { Plane, MapPin, Calendar, Users, Clock } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 const Quote = () => {
   return (
@@ -15,9 +17,14 @@ const Quote = () => {
         <section className="relative bg-maswadeh-blue py-16 px-4 text-white">
           <div className="container mx-auto text-center relative z-10">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">Get Your Travel Quote</h1>
-            <p className="text-xl max-w-2xl mx-auto">
+            <p className="text-xl max-w-2xl mx-auto mb-6">
               Let us help you plan your perfect journey with competitive prices and personalized service
             </p>
+            <Link to="/detailed-quote">
+              <Button className="bg-maswadeh-orange hover:bg-orange-600 text-white">
+                See Example Quote
+              </Button>
+            </Link>
           </div>
           {/* Background elements */}
           <div className="absolute top-0 right-0 w-64 h-64 opacity-10">

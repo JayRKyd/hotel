@@ -22,14 +22,16 @@ const Index = () => {
                 Let us take you to the most beautiful destinations around the world.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link to="/quote">
+                <Link to="/detailed-quote">
                   <Button className="bg-maswadeh-orange hover:bg-orange-600 text-white px-8 py-6 text-lg">
+                    View Sample Quote
+                  </Button>
+                </Link>
+                <Link to="/quote">
+                  <Button className="bg-maswadeh-cyan hover:bg-cyan-600 text-white px-8 py-6 text-lg">
                     Get Quote
                   </Button>
                 </Link>
-                <Button variant="outline" className="border-white text-white hover:bg-white/10 px-8 py-6 text-lg">
-                  Explore Destinations
-                </Button>
               </div>
             </div>
             <div className="w-full md:w-1/2 flex justify-center">
@@ -85,8 +87,13 @@ const Index = () => {
           </div>
           
           <div className="container mx-auto text-center mt-12">
+            <Link to="/detailed-quote">
+              <Button className="bg-maswadeh-blue hover:bg-blue-800 text-white px-8 py-6 text-lg mr-4">
+                View Sample Quote
+              </Button>
+            </Link>
             <Link to="/quote">
-              <Button className="bg-maswadeh-blue hover:bg-blue-800 text-white px-8 py-6 text-lg">
+              <Button className="bg-maswadeh-orange hover:bg-orange-600 text-white px-8 py-6 text-lg">
                 Request Your Quote Now
               </Button>
             </Link>
