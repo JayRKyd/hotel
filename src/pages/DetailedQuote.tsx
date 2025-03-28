@@ -1,8 +1,8 @@
-
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Star, MapPin, Clock, Upload, Map, CheckCircle, Phone, MessageSquare } from 'lucide-react';
+import { Star, MapPin, Clock, Upload, Map, CheckCircle, Phone, MessageSquare, ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
 import WhyChooseUs from '@/components/WhyChooseUs';
 import Testimonials from '@/components/Testimonials';
 import TravelerCenter from '@/components/TravelerCenter';
@@ -13,114 +13,129 @@ const DetailedQuote = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen flex flex-col">
-      {/* Top navigation bar */}
-      <div className="bg-white shadow-sm py-2 px-4">
+    <div className="min-h-screen bg-maswadeh-light flex flex-col">
+      {/* Custom header for the quote page */}
+      <div className="bg-gradient-to-r from-maswadeh-blue to-maswadeh-cyan text-white shadow-lg py-3 px-4 sticky top-0 z-50">
         <div className="container mx-auto flex justify-between items-center">
-          <div className="flex items-center space-x-3">
-            <div className="flex space-x-2">
-              <a href="#" className="text-red-500 hover:text-red-700">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-                  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
-                </svg>
-              </a>
-              <a href="#" className="text-blue-400 hover:text-blue-600">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-                  <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
-                </svg>
-              </a>
-              <a href="#" className="text-blue-500 hover:text-blue-700">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-                  <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
-                </svg>
-              </a>
-              <a href="#" className="text-blue-400 hover:text-blue-600">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-                  <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
-                </svg>
-              </a>
-              <a href="#" className="text-pink-500 hover:text-pink-700">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-                  <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
-                </svg>
-              </a>
-            </div>
-            <span className="text-gray-600 text-sm">For a call from Israel 888+</span>
-          </div>
+          <Button 
+            variant="ghost" 
+            className="text-white hover:bg-white/20" 
+            onClick={() => navigate('/')}
+          >
+            <ArrowLeft size={16} className="mr-2" />
+            Back to Home
+          </Button>
           <div>
             <img src="/lovable-uploads/ad26f2ec-076f-40b6-942a-d5dfcd10d665.png" alt="Maswadeh Tourism Logo" className="h-10" />
+          </div>
+          <div className="flex items-center space-x-3">
+            <Button 
+              size="sm" 
+              className="bg-white text-maswadeh-cyan hover:bg-white/90"
+            >
+              <Phone size={16} className="mr-1" />
+              Contact
+            </Button>
           </div>
         </div>
       </div>
       
-      {/* Main content */}
-      <div className="w-full bg-cover bg-center min-h-[400px]" style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80")' }}>
-        <div className="container mx-auto py-8 px-4">
-          <div className="flex flex-col md:flex-row gap-8">
-            {/* Agent information card */}
-            <div className="bg-[#00b6de] text-white p-6 rounded-lg shadow-md max-w-xs">
-              <h3 className="font-bold mb-4">Your Agent Information: Yuval</h3>
-              <p className="mb-2">Phone: 888+</p>
-              <a 
-                href="https://wa.me/888" 
-                className="flex items-center justify-center bg-[#ff3399] hover:bg-pink-600 text-white py-2 px-4 rounded-md mt-4"
-              >
-                <MessageSquare size={18} className="mr-2" />
-                To contact us on WhatsApp
-              </a>
-              <div className="text-center mt-4 text-sm">
-                <a href="#" className="text-white">click</a>
-              </div>
-            </div>
-            
-            {/* Proposal ready card */}
-            <div className="bg-white p-6 rounded-lg shadow-md flex-1">
-              <h2 className="text-[#00b6de] text-2xl font-semibold mb-2">
-                {userInfo.name}, your proposal is already ready :)
+      {/* Main content with unique styling */}
+      <div className="bg-gradient-to-b from-maswadeh-light to-white py-8">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col-reverse md:flex-row gap-8 mb-12">
+            {/* Quote details section */}
+            <div className="bg-white p-6 rounded-lg shadow-lg flex-1 border-l-4 border-maswadeh-cyan">
+              <h2 className="text-maswadeh-blue text-3xl font-bold mb-4 font-playfair">
+                {userInfo.name}, your proposal is ready!
               </h2>
-              <p className="text-gray-700 mb-4">What fun! Your dream vacation begins when...</p>
+              <p className="text-gray-700 mb-6 text-lg">
+                Your dream vacation to Thailand begins in:
+              </p>
               
-              {/* Countdown timer */}
-              <div className="flex space-x-8 mb-6">
+              {/* Countdown timer with enhanced style */}
+              <div className="flex justify-center md:justify-start space-x-6 mb-8">
                 <div className="text-center">
-                  <div className="bg-[#00b6de] text-white text-2xl font-bold rounded-md p-3 min-w-[60px]">
+                  <div className="bg-gradient-to-r from-maswadeh-cyan to-blue-500 text-white text-2xl font-bold rounded-lg p-4 min-w-[70px] shadow-md">
                     {userInfo.countdown.days}
                   </div>
-                  <p className="text-gray-600 mt-1">Days</p>
+                  <p className="text-gray-600 mt-2 font-medium">Days</p>
                 </div>
                 <div className="text-center">
-                  <div className="bg-[#00b6de] text-white text-2xl font-bold rounded-md p-3 min-w-[60px]">
+                  <div className="bg-gradient-to-r from-maswadeh-cyan to-blue-500 text-white text-2xl font-bold rounded-lg p-4 min-w-[70px] shadow-md">
                     {userInfo.countdown.hours}
                   </div>
-                  <p className="text-gray-600 mt-1">Hours</p>
+                  <p className="text-gray-600 mt-2 font-medium">Hours</p>
                 </div>
                 <div className="text-center">
-                  <div className="bg-[#00b6de] text-white text-2xl font-bold rounded-md p-3 min-w-[60px]">
+                  <div className="bg-gradient-to-r from-maswadeh-cyan to-blue-500 text-white text-2xl font-bold rounded-lg p-4 min-w-[70px] shadow-md">
                     {userInfo.countdown.minutes}
                   </div>
-                  <p className="text-gray-600 mt-1">Minutes</p>
+                  <p className="text-gray-600 mt-2 font-medium">Minutes</p>
                 </div>
               </div>
               
-              <div className="mb-6">
-                <p className="text-gray-600">Offer Number: {userInfo.offerNumber}</p>
+              <div className="bg-maswadeh-light p-4 rounded-md mb-6">
+                <p className="text-gray-700 flex items-center justify-between">
+                  <span className="font-medium">Offer Number:</span> 
+                  <span className="bg-white px-3 py-1 rounded-md font-bold text-maswadeh-blue">{userInfo.offerNumber}</span>
+                </p>
               </div>
               
-              <div className="flex flex-wrap gap-4">
-                <Button className="flex items-center bg-white border border-[#00b6de] text-[#00b6de] hover:bg-[#00b6de] hover:text-white">
+              <div className="flex flex-wrap gap-4 justify-center md:justify-start">
+                <Button className="flex items-center bg-maswadeh-orange text-white hover:bg-orange-600 shadow-md">
                   <Upload size={18} className="mr-2" />
                   Passport Upload
                 </Button>
-                <Button className="flex items-center bg-white border border-[#00b6de] text-[#00b6de] hover:bg-[#00b6de] hover:text-white">
+                <Button className="flex items-center bg-maswadeh-blue text-white hover:bg-blue-700 shadow-md">
                   <Map size={18} className="mr-2" />
                   Route Map
                 </Button>
               </div>
             </div>
+            
+            {/* Agent information card */}
+            <div className="md:max-w-xs w-full">
+              <Card className="overflow-hidden shadow-lg">
+                <div className="bg-gradient-to-r from-maswadeh-blue to-maswadeh-cyan p-4 text-white">
+                  <h3 className="text-xl font-bold">Your Personal Travel Agent</h3>
+                </div>
+                <CardContent className="p-6">
+                  <div className="flex flex-col items-center mb-6">
+                    <div className="w-24 h-24 rounded-full bg-maswadeh-light flex items-center justify-center mb-3">
+                      <span className="text-maswadeh-blue text-3xl font-bold">Y</span>
+                    </div>
+                    <h4 className="font-bold text-lg">Yuval</h4>
+                    <p className="text-gray-600">Senior Travel Consultant</p>
+                  </div>
+                  
+                  <div className="space-y-4">
+                    <div className="flex items-center">
+                      <Phone size={18} className="text-maswadeh-cyan mr-2" />
+                      <p>Phone: 888+</p>
+                    </div>
+                    <a 
+                      href="https://wa.me/888" 
+                      className="flex items-center justify-center bg-[#25D366] hover:bg-green-500 text-white py-2 px-4 rounded-md w-full"
+                    >
+                      <MessageSquare size={18} className="mr-2" />
+                      Contact via WhatsApp
+                    </a>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
           </div>
           
-          {/* Enhanced Destination cards */}
-          <div className="mt-12 space-y-4">
+          {/* Itinerary title */}
+          <div className="mb-8 text-center">
+            <h2 className="text-3xl font-bold text-maswadeh-blue font-playfair inline-block relative after:content-[''] after:absolute after:w-full after:h-1 after:bg-maswadeh-cyan after:bottom-0 after:left-0">
+              Your Thailand Itinerary
+            </h2>
+          </div>
+          
+          {/* Destination cards - keeping the existing functionality but with styling updates */}
+          <div className="space-y-6">
             {/* Bangkok */}
             <DestinationCard
               destination="Bangkok"
@@ -226,42 +241,52 @@ const DetailedQuote = () => {
           </div>
           
           {/* Terms and conditions */}
-          <div className="mt-8 flex flex-wrap gap-4">
-            <Button variant="outline" className="flex items-center text-gray-700 border-gray-300">
-              <CheckCircle size={18} className="mr-2" />
-              Conditions of cancellation or modification of a reservation
-            </Button>
-            <Button variant="outline" className="flex items-center text-gray-700 border-gray-300">
-              <CheckCircle size={18} className="mr-2" />
-              Signing the terms of an order
-            </Button>
+          <div className="mt-8 flex flex-wrap gap-4 justify-center">
+            <Card className="max-w-md shadow-md hover:shadow-lg transition-shadow border-l-4 border-maswadeh-cyan p-4 flex items-center">
+              <CheckCircle size={24} className="text-maswadeh-cyan mr-3 flex-shrink-0" />
+              <div>
+                <h4 className="font-medium text-maswadeh-blue">Cancellation Policy</h4>
+                <p className="text-sm text-gray-600">Review our flexible cancellation and modification terms</p>
+              </div>
+            </Card>
+            
+            <Card className="max-w-md shadow-md hover:shadow-lg transition-shadow border-l-4 border-maswadeh-orange p-4 flex items-center">
+              <CheckCircle size={24} className="text-maswadeh-orange mr-3 flex-shrink-0" />
+              <div>
+                <h4 className="font-medium text-maswadeh-blue">Booking Terms</h4>
+                <p className="text-sm text-gray-600">Read and sign our booking terms and conditions</p>
+              </div>
+            </Card>
           </div>
         </div>
       </div>
       
-      {/* Why choose us section */}
-      <WhyChooseUs />
+      {/* Why choose us section - keeping functionality but adding distinct separation */}
+      <div className="relative py-10">
+        <div className="absolute top-0 left-0 w-full h-12 bg-gradient-to-b from-white to-transparent"></div>
+        <WhyChooseUs />
+      </div>
       
-      {/* Testimonials section */}
+      {/* Truncated sections - keeping fewer sections to differentiate from landing page */}
       <Testimonials />
       
-      {/* Traveler Center section */}
-      <TravelerCenter />
-      
-      {/* Reviews section */}
-      <Reviews />
-      
-      {/* Contact CTA */}
-      <div className="bg-white py-8">
-        <div className="container mx-auto flex justify-between items-center px-4">
-          <div className="max-w-xs">
-            <img src="/logo.png" alt="Maswadeh Tourism & Travel" className="h-16" />
-          </div>
-          <div className="text-right">
-            <Button className="bg-maswadeh-cyan hover:bg-cyan-600 text-white">
-              <Phone size={18} className="mr-2" />
-              888+
-            </Button>
+      {/* Custom footer for quote page */}
+      <div className="bg-maswadeh-blue text-white py-8">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <div className="mb-6 md:mb-0 text-center md:text-left">
+              <h3 className="text-xl font-bold mb-2">Ready to confirm your booking?</h3>
+              <p className="text-blue-100">Our travel specialists are available to answer any questions</p>
+            </div>
+            <div className="flex gap-4">
+              <Button className="bg-white text-maswadeh-blue hover:bg-white/90">
+                <Phone size={18} className="mr-2" />
+                Call Us: 888+
+              </Button>
+              <Button className="bg-maswadeh-orange hover:bg-orange-600">
+                Confirm Booking
+              </Button>
+            </div>
           </div>
         </div>
       </div>
