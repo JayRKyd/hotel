@@ -172,3 +172,22 @@
   box-shadow: 0 10px 25px rgba(0, 182, 222, 0.2);
   transform: translateY(-5px);
 }
+
+/* Hero section enhancements */
+.hero-section {
+  min-height: 85vh; /* Make the hero section bigger by setting a minimum height */
+  display: flex;
+  align-items: center;
+}
+
+.hero-content {
+  padding-top: 2rem;
+  padding-bottom: 4rem;
+}
+
+@media (min-width: 768px) {
+  .hero-content {
+    padding-top: 4rem;
+    padding-bottom: 6rem;
+  }
+}

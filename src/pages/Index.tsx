@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
@@ -15,21 +14,21 @@ const Index = () => {
       <Header />
       
       <main className="flex-grow">
-        {/* Hero Section with improved background */}
-        <section className="relative bg-maswadeh-blue py-20 px-4 text-white overflow-hidden">
+        {/* Hero Section with improved background and increased size */}
+        <section className="relative bg-maswadeh-blue py-20 px-4 text-white overflow-hidden hero-section">
           {/* Background decorative elements */}
           <div className="absolute inset-0 opacity-20 z-0">
             <div className="absolute top-0 left-0 w-full h-full bg-[url('https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1488&q=80')] bg-cover bg-center"></div>
           </div>
           
-          <div className="container mx-auto flex flex-col md:flex-row items-center relative z-10">
+          <div className="container mx-auto flex flex-col md:flex-row items-center relative z-10 hero-content">
             <div className="w-full md:w-1/2 mb-10 md:mb-0 animate-fade-in">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6 font-playfair">Discover Your Perfect Journey</h1>
-              <p className="text-xl mb-8">
+              <h1 className="text-5xl md:text-6xl font-bold mb-8 font-playfair">Discover Your Perfect Journey</h1>
+              <p className="text-xl md:text-2xl mb-10">
                 Experience unforgettable adventures with Maswadeh Tourism & Travel. 
                 Let us take you to the most beautiful destinations around the world.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-6">
                 <Link to="/detailed-quote">
                   <Button className="hover-scale bg-maswadeh-orange hover:bg-orange-600 text-white px-8 py-6 text-lg group transition-all duration-300">
                     View Sample Quote
