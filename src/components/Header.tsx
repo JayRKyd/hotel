@@ -1,12 +1,14 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+import LanguageSwitcher from './LanguageSwitcher';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const { t } = useTranslation();
 
   // Add scroll effect for header
   useEffect(() => {
@@ -35,47 +37,46 @@ const Header = () => {
             to="/" 
             className={`text-white hover:text-maswadeh-cyan font-medium transition-colors relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-maswadeh-cyan after:origin-center after:transform after:scale-x-0 after:transition-transform hover:after:scale-x-100 ${location.pathname === '/' ? 'after:scale-x-100' : ''}`}
           >
-            Home
+            {t('common.home')}
           </Link>
           <Link 
             to="/quote" 
             className={`text-white hover:text-maswadeh-cyan font-medium transition-colors relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-maswadeh-cyan after:origin-center after:transform after:scale-x-0 after:transition-transform hover:after:scale-x-100 ${location.pathname === '/quote' ? 'after:scale-x-100' : ''}`}
           >
-            Get Quote
+            {t('common.quote')}
           </Link>
           <Link 
             to="/detailed-quote" 
             className={`text-white hover:text-maswadeh-cyan font-medium transition-colors relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-maswadeh-cyan after:origin-center after:transform after:scale-x-0 after:transition-transform hover:after:scale-x-100 ${location.pathname === '/detailed-quote' ? 'after:scale-x-100' : ''}`}
           >
-            Sample Quote
+            {t('common.detailedQuote')}
+          </Link>
+ 
+
+          <Link 
+            to="/about" 
+            className={`text-white hover:text-maswadeh-cyan font-medium transition-colors relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-maswadeh-cyan after:origin-center after:transform after:scale-x-0 after:transition-transform hover:after:scale-x-100 ${location.pathname === '/about-us' ? 'after:scale-x-100' : ''}`}
+          >
+            {t('common.about')}
           </Link>
           <Link 
-            to="#" 
-            className="text-white hover:text-maswadeh-cyan font-medium transition-colors relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-maswadeh-cyan after:origin-center after:transform after:scale-x-0 after:transition-transform hover:after:scale-x-100"
+            to="/admin" 
+            className={`text-white hover:text-maswadeh-cyan font-medium transition-colors relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-maswadeh-cyan after:origin-center after:transform after:scale-x-0 after:transition-transform hover:after:scale-x-100 ${location.pathname.startsWith('/admin') ? 'after:scale-x-100' : ''}`}
           >
-            Destinations
-          </Link>
-          <Link 
-            to="#" 
-            className="text-white hover:text-maswadeh-cyan font-medium transition-colors relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-maswadeh-cyan after:origin-center after:transform after:scale-x-0 after:transition-transform hover:after:scale-x-100"
-          >
-            Services
-          </Link>
-          <Link 
-            to="#" 
-            className="text-white hover:text-maswadeh-cyan font-medium transition-colors relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-maswadeh-cyan after:origin-center after:transform after:scale-x-0 after:transition-transform hover:after:scale-x-100"
-          >
-            Contact
+            {t('header.adminPanel')}
           </Link>
         </nav>
-        <div className="md:hidden">
-          <button 
-            className="text-white p-2"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+        <div className="flex items-center space-x-2">
+          <LanguageSwitcher />
+          <div className="md:hidden">
+            <button 
+              className="text-white p-2"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
       </div>
     </header>

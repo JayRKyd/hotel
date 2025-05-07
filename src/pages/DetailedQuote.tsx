@@ -1,6 +1,7 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Star, MapPin, Clock, Upload, Map, CheckCircle, Phone, MessageSquare, ArrowLeft } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import { Star, MapPin, Clock, Upload, Map, CheckCircle, Phone, MessageSquare, ArrowLeft, DollarSign, Users, Wifi, Coffee, Car } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import WhyChooseUs from '@/components/WhyChooseUs';
@@ -8,9 +9,107 @@ import Testimonials from '@/components/Testimonials';
 import TravelerCenter from '@/components/TravelerCenter';
 import Reviews from '@/components/Reviews';
 import DestinationCard from '@/components/DestinationCard';
+import Footer from '@/components/Footer';
+import RecommendedPlaces from '@/components/RecommendedPlaces';
+import { destinationService } from '@/services/destinationService';
+import type { Destination } from '@/services/destinationService';
+import { tripService } from '@/services/tripService';
+import { hotelService } from '@/services/hotelService';
+import type { Hotel } from '@/services/hotelService';
+
+// Extended destination interface for the DetailedQuote component
+interface QuoteDestination extends Partial<Destination> {
+  name: string;
+  country?: string;
+  dates?: string;
+  nights?: number;
+  hotel?: Hotel;
+}
 
 const DetailedQuote = () => {
   const navigate = useNavigate();
+  const { id } = useParams<{ id: string }>();
+  const [destinations, setDestinations] = useState<QuoteDestination[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [trip, setTrip] = useState<any>(null);
+  const { t } = useTranslation();
+
+  useEffect(() => {
+    const loadData = async () => {
+      try {
+        setLoading(true);
+        
+        // If we have an ID, load that specific quote
+        if (id) {
+          const tripData = await tripService.getById(id);
+          if (!tripData) {
+            setError('Quote not found');
+            return;
+          }
+          
+          setTrip(tripData);
+          
+          // Load hotels for each destination
+          const destinationsWithHotels = await Promise.all(
+            tripData.destinations.map(async (dest) => {
+              if (dest.hotelId) {
+                const hotel = await hotelService.getById(dest.hotelId);
+                return {
+                  ...dest,
+                  hotel,
+                  name: hotel?.name || 'Unknown Destination'
+                };
+              }
+              return {
+                ...dest,
+                name: 'Unknown Destination'
+              };
+            })
+          );
+          
+          setDestinations(destinationsWithHotels as QuoteDestination[]);
+        } 
+        // Otherwise, load featured hotels
+        else {
+          // Load all featured hotels
+          const allHotels = await hotelService.getAll();
+          const featuredHotels = allHotels.filter(hotel => hotel.isFeatured);
+            
+          if (featuredHotels.length === 0) {
+            // If no featured hotels, use mock data or leave empty
+            setDestinations([]);
+            return;
+          }
+            
+          // Group hotels by destination/city
+          const hotelsByDestination = featuredHotels.reduce((acc, hotel) => {
+            const key = hotel.city;
+            if (!acc[key]) {
+              acc[key] = {
+                name: hotel.city,
+                country: hotel.country,
+                dates: '18-04-2025 - 21-04-2025', // Example dates
+                nights: 3, // Default value
+                hotel: hotel
+              } as QuoteDestination;
+            }
+            return acc;
+          }, {} as Record<string, QuoteDestination>);
+            
+          // Convert to array for rendering
+          setDestinations(Object.values(hotelsByDestination));
+        }
+      } catch (error) {
+        console.error('Error loading data:', error);
+        setError('Failed to load data');
+      } finally {
+        setLoading(false);
+      }
+    };
+    
+    loadData();
+  }, [id]);
 
   return (
     <div className="min-h-screen bg-maswadeh-light flex flex-col">
@@ -26,7 +125,7 @@ const DetailedQuote = () => {
             Back to Home
           </Button>
           <div>
-            <img src="/lovable-uploads/ad26f2ec-076f-40b6-942a-d5dfcd10d665.png" alt="Maswadeh Tourism Logo" className="h-10" />
+            <h1 className="text-white text-2xl font-bold">Maswadeh Tourism</h1>
           </div>
           <div className="flex items-center space-x-3">
             <Button 
@@ -72,6 +171,26 @@ const DetailedQuote = () => {
                     {userInfo.countdown.minutes}
                   </div>
                   <p className="text-gray-600 mt-2 font-medium">Minutes</p>
+                </div>
+              </div>
+              
+              {/* Price summary */}
+              <div className="bg-maswadeh-light p-6 rounded-md mb-6">
+                <h3 className="text-xl font-bold text-maswadeh-blue mb-3">Package Price Summary</h3>
+                <div className="flex justify-between items-center mb-2">
+                  <span className="text-gray-700">Regular Price:</span>
+                  <span className="text-gray-500 line-through">${userInfo.pricing.regularPrice}</span>
+                </div>
+                <div className="flex justify-between items-center mb-2">
+                  <span className="text-gray-700">Special Offer:</span>
+                  <span className="text-2xl font-bold text-maswadeh-orange">${userInfo.pricing.specialPrice}</span>
+                </div>
+                <div className="flex justify-between items-center mb-2">
+                  <span className="text-gray-700">You Save:</span>
+                  <span className="text-green-600 font-medium">${userInfo.pricing.regularPrice - userInfo.pricing.specialPrice} (${userInfo.pricing.discountPercentage}%)</span>
+                </div>
+                <div className="text-sm text-gray-600 mt-2">
+                  *Price is per person based on double occupancy
                 </div>
               </div>
               
@@ -134,110 +253,142 @@ const DetailedQuote = () => {
             </h2>
           </div>
           
-          {/* Destination cards - keeping the existing functionality but with styling updates */}
+          {/* Destination cards */}
           <div className="space-y-6">
-            {/* Bangkok */}
-            <DestinationCard
-              destination="Bangkok"
-              checkIn="18-04-2025"
-              checkOut="21-04-2025"
-              isRecommended={true}
-              hotels={[
-                {
-                  name: "Centara Watergate Pavilion Hotel Bangkok (VIP)",
-                  stars: 5,
-                  checkIn: "18-04-2023",
-                  checkOut: "21-04-2023",
-                  image: "https://images.unsplash.com/photo-1563911302283-d2bc129e7570?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-                  rating: {
-                    score: 8.7,
-                    label: "Excellent",
-                    reviews: 1406
-                  },
-                  description: "This modern hotel with a beautiful rooftop offers luxury and comfort in the heart of Bangkok. It's a great spot for tourists looking for easy access to shopping malls and restaurants.",
-                  amenities: ["Free WiFi", "Pool", "Spa", "Restaurant", "Parking", "Air conditioning"]
-                }
-              ]}
-              onViewMap={() => console.log("View map clicked")}
-            />
+            {loading ? (
+              <div className="text-center py-8">
+                <p className="text-gray-600">Loading destinations...</p>
+              </div>
+            ) : error ? (
+              <div className="text-center py-8">
+                <p className="text-red-600">{error}</p>
+              </div>
+            ) : destinations.length === 0 ? (
+              <div className="text-center py-8">
+                <p className="text-gray-600">No destinations available</p>
+              </div>
+            ) : (
+              destinations.map((destination, index) => (
+                <div key={index} className="mb-12">
+                  <h2 className="text-2xl font-bold mb-4">{destination.name}</h2>
+                  <p className="text-gray-600 mb-4">{destination.dates}</p>
+                  
+                  {destination.hotel ? (
+                    <div className="bg-white rounded-lg shadow-md overflow-hidden mb-6">
+                      <div className="flex flex-col md:flex-row">
+                        {/* Hotel Image */}
+                        <div className="md:w-1/3 h-64 md:h-auto">
+                          <img 
+                            src={destination.hotel.photoUrl} 
+                            alt={destination.hotel.name}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                        
+                        {/* Hotel Details */}
+                        <div className="md:w-2/3 p-6">
+                          <div className="flex justify-between items-start mb-4">
+                            <div>
+                              <h3 className="text-xl font-bold">{destination.hotel.name}</h3>
+                              <div className="flex items-center mt-1">
+                                <MapPin size={16} className="text-gray-500 mr-1" />
+                                <span className="text-gray-600 text-sm">{destination.hotel.city}, {destination.hotel.country}</span>
+                              </div>
+                            </div>
+                            <div className="flex">
+                              {Array.from({ length: destination.hotel.stars }).map((_, i) => (
+                                <Star key={i} size={16} className="text-yellow-400" fill="#FACC15" />
+                              ))}
+                            </div>
+                          </div>
+                          
+                          {/* Amenities */}
+                          <div className="mb-4">
+                            <h4 className="text-sm font-semibold mb-2">Amenities:</h4>
+                            <div className="flex flex-wrap gap-2">
+                              {destination.hotel.amenities.map((amenity, i) => (
+                                <span key={i} className="inline-flex items-center px-2 py-1 bg-gray-100 rounded-md text-xs">
+                                  {amenity === 'WiFi' && <Wifi size={12} className="mr-1" />}
+                                  {amenity === 'Breakfast' && <Coffee size={12} className="mr-1" />}
+                                  {amenity === 'Parking' && <Car size={12} className="mr-1" />}
+                                  {amenity}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                          
+                          {/* Room Information */}
+                          <div className="mb-4">
+                            <h4 className="text-sm font-semibold mb-2">Room Type:</h4>
+                            <p className="text-sm">{destination.hotel.roomType || 'Standard Room'}</p>
+                            <div className="flex items-center mt-1">
+                              <Users size={16} className="text-gray-500 mr-1" />
+                              <span className="text-gray-600 text-sm">
+                                Max Occupancy: {destination.hotel.maxOccupancy || '2 Adults, 1 Child'}
+                              </span>
+                            </div>
+                          </div>
+                          
+                          {/* Stay Duration */}
+                          <div className="flex items-center mt-4">
+                            <Clock size={16} className="text-gray-500 mr-1" />
+                            <span className="text-gray-600 text-sm">
+                              {destination.nights || 3} nights stay
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="bg-gray-100 rounded-lg p-6 mb-6 text-center">
+                      <p className="text-gray-600">No hotel information available for this destination.</p>
+                    </div>
+                  )}
+                  
+                  {/* Daily activities section */}
+                  <div className="mt-6">
+                    <h3 className="text-lg font-semibold mb-3">Daily Activities</h3>
+                    {/* Render activities here */}
+                  </div>
+                </div>
+              ))
+            )}
+          </div>
+          
+          {/* Package inclusions and exclusions */}
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
+            <Card>
+              <CardContent className="p-6">
+                <h3 className="text-xl font-semibold mb-4 flex items-center">
+                  <CheckCircle className="text-green-500 mr-2" size={20} />
+                  Package Inclusions
+                </h3>
+                <ul className="space-y-2">
+                  {packageDetails.inclusions.map((item, index) => (
+                    <li key={index} className="flex items-start">
+                      <CheckCircle className="text-green-500 mr-2 mt-1 flex-shrink-0" size={16} />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
             
-            {/* Krabi */}
-            <DestinationCard
-              destination="Krabi"
-              checkIn="21-04-2025"
-              checkOut="24-04-2025"
-              isRecommended={true}
-              hotels={[
-                {
-                  name: "HOTEL DUSIT THANI",
-                  stars: 5,
-                  checkIn: "21-04-2023",
-                  checkOut: "24-04-2023",
-                  image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-                  rating: {
-                    score: 9.1,
-                    label: "Exceptional",
-                    reviews: 2103
-                  },
-                  description: "Situated near the beach, this luxury resort offers stunning views of the ocean and limestone cliffs. Perfect for couples and families looking for a relaxing getaway.",
-                  amenities: ["Beachfront", "Pool", "Spa", "Free breakfast", "Restaurant", "Bar"]
-                }
-              ]}
-              onViewMap={() => console.log("View map clicked")}
-            />
-            
-            {/* Phuket */}
-            <DestinationCard
-              destination="Phuket"
-              checkIn="24-04-2025"
-              checkOut="30-04-2025"
-              isRecommended={true}
-              hotels={[
-                {
-                  name: "Anantara ElevEast Pattaya",
-                  stars: 5,
-                  checkIn: "24-04-2023",
-                  checkOut: "30-04-2023",
-                  image: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-                  rating: {
-                    score: 9.3,
-                    label: "Exceptional",
-                    reviews: 1832
-                  },
-                  description: "Luxurious beachfront resort with private pool villas and world-class dining options. Offers a range of activities and excursions to explore the beauty of Phuket.",
-                  amenities: ["Private beach", "Infinity pool", "Spa", "Fine dining", "Water sports", "Kids club"]
-                },
-                {
-                  name: "The Kee Resort & Spa Patong",
-                  stars: 4,
-                  checkIn: "24-04-2023",
-                  checkOut: "30-04-2023",
-                  image: "https://images.unsplash.com/photo-1570213489059-0aac6626cade?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1475&q=80",
-                  rating: {
-                    score: 8.8,
-                    label: "Excellent",
-                    reviews: 2574
-                  },
-                  description: "Located in the heart of Patong, this modern resort offers easy access to the beach, shopping, and nightlife. Features a rooftop pool with panoramic views.",
-                  amenities: ["Rooftop pool", "Spa", "Restaurant", "Bar", "Fitness center", "Free WiFi"]
-                },
-                {
-                  name: "Woraburi Pattaya Hotel & Resort",
-                  stars: 4,
-                  checkIn: "24-04-2023",
-                  checkOut: "30-04-2023",
-                  image: "https://images.unsplash.com/photo-1582719508461-905c673771fd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1525&q=80",
-                  rating: {
-                    score: 8.5,
-                    label: "Very Good",
-                    reviews: 1942
-                  },
-                  description: "Comfortable hotel with traditional Thai architecture and a relaxing atmosphere. Offers good value for money with convenient location near attractions.",
-                  amenities: ["Pool", "Restaurant", "Room service", "Garden", "Airport shuttle", "Free WiFi"]
-                }
-              ]}
-              onViewMap={() => console.log("View map clicked")}
-            />
+            <Card>
+              <CardContent className="p-6">
+                <h3 className="text-xl font-semibold mb-4 flex items-center text-gray-700">
+                  Not Included
+                </h3>
+                <ul className="space-y-2">
+                  {packageDetails.exclusions.map((item, index) => (
+                    <li key={index} className="flex items-start">
+                      <span className="text-red-500 mr-2 mt-1">•</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
           </div>
           
           {/* Terms and conditions */}
@@ -270,26 +421,23 @@ const DetailedQuote = () => {
       {/* Truncated sections - keeping fewer sections to differentiate from landing page */}
       <Testimonials />
       
-      {/* Custom footer for quote page */}
-      <div className="bg-maswadeh-blue text-white py-8">
+      {/* Recommended Places Section */}
+      <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="mb-6 md:mb-0 text-center md:text-left">
-              <h3 className="text-xl font-bold mb-2">Ready to confirm your booking?</h3>
-              <p className="text-blue-100">Our travel specialists are available to answer any questions</p>
-            </div>
-            <div className="flex gap-4">
-              <Button className="bg-white text-maswadeh-blue hover:bg-white/90">
-                <Phone size={18} className="mr-2" />
-                Call Us: 888+
-              </Button>
-              <Button className="bg-maswadeh-orange hover:bg-orange-600">
-                Confirm Booking
-              </Button>
-            </div>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-maswadeh-blue mb-4">
+              {t('detailedQuotePage.recommendedPlaces.title')}
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              {t('detailedQuotePage.recommendedPlaces.subtitle')}
+            </p>
           </div>
+          <RecommendedPlaces />
         </div>
-      </div>
+      </section>
+      
+      {/* Footer */}
+      <Footer />
     </div>
   );
 };
@@ -302,7 +450,35 @@ const userInfo = {
     days: 20,
     hours: 2,
     minutes: 35
+  },
+  pricing: {
+    regularPrice: 3499,
+    specialPrice: 2799,
+    discountPercentage: 20
   }
+};
+
+// Package details
+const packageDetails = {
+  inclusions: [
+    "All hotel accommodations as per itinerary",
+    "Daily breakfast at hotels",
+    "Private airport transfers",
+    "Guided city tours in Bangkok, Krabi, and Phuket",
+    "Island hopping tour in Krabi",
+    "Phi Phi Islands excursion",
+    "All entrance fees to attractions mentioned in itinerary",
+    "English-speaking tour guides",
+    "24/7 travel assistance"
+  ],
+  exclusions: [
+    "International flights",
+    "Travel insurance",
+    "Personal expenses",
+    "Optional activities not mentioned in itinerary",
+    "Meals not specified",
+    "Tips and gratuities"
+  ]
 };
 
 export default DetailedQuote;

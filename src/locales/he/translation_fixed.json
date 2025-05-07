@@ -1,0 +1,313 @@
+{
+  "common": {
+    "error": "שגיאה",
+    "success": "הצלחה",
+    "cancel": "ביטול",
+    "edit": "עריכה",
+    "delete": "מחיקה",
+    "update": "עדכן",
+    "create": "צור",
+    "home": "בית",
+    "about": "אודות",
+    "contact": "צור קשר",
+    "quote": "הצעת מחיר",
+    "detailedQuote": "הצעת מחיר מפורטת",
+    "admin": "ניהול",
+    "login": "התחברות",
+    "logout": "התנתקות",
+    "search": "חיפוש",
+    "submit": "שלח",
+    "save": "שמור",
+    "back": "חזרה",
+    "next": "הבא",
+    "previous": "הקודם",
+    "loading": "טוען...",
+    "address": "רחוב התיירות 123, בנגקוק, תאילנד",
+    "phone": "+1 (234) 567-890",
+    "email": "info@maswadeh.com",
+    "officeHours": "שעות פעילות",
+    "officeHoursDescription": "שני - שישי: 9:00 - 18:00\nשבת: 10:00 - 16:00\nראשון: סגור"
+  },
+  "header": {
+    "adminPanel": "פאנל ניהול"
+  },
+  "footer": {
+    "allRightsReserved": "כל הזכויות שמורות",
+    "privacyPolicy": "מדיניות פרטיות",
+    "termsOfService": "תנאי שימוש"
+  },
+  "homePage": {
+    "hero": {
+      "title": "גלה את העולם עם מסוואדה תיירות",
+      "subtitle": "חוויות נסיעה מותאמות אישית לכל יעד",
+      "cta": "קבל הצעת מחיר"
+    },
+    "destinations": {
+      "popularTitle": "יעדים פופולריים",
+      "subtitle": "גלה את היעדים המובילים שלנו",
+      "viewAll": "צפה בכל היעדים"
+    },
+    "whyChooseUs": {
+      "title": "למה להזמין דרכנו?",
+      "subtitle": "אנו מציעים את השירות הטוב ביותר",
+      "reason1": {
+        "title": "מחירים תחרותיים",
+        "description": "אנו מציעים את המחירים הטובים ביותר בשוק"
+      },
+      "reason2": {
+        "title": "שירות אישי",
+        "description": "צוות המומחים שלנו זמין 24/7 לענות על כל השאלות שלך"
+      },
+      "reason3": {
+        "title": "חבילות מותאמות אישית",
+        "description": "אנו מתאימים את החבילות שלנו לצרכים הספציפיים שלך"
+      }
+    },
+    "featuredHotels": {
+      "title": "מלונות מומלצים",
+      "subtitle": "מלונות איכותיים במחירים משתלמים",
+      "viewAll": "צפה בכל המלונות"
+    },
+    "testimonials": {
+      "title": "מה הלקוחות שלנו אומרים",
+      "subtitle": "חוויות אמיתיות מלקוחות מרוצים"
+    },
+    "newsletter": {
+      "title": "הירשם לניוזלטר שלנו",
+      "subtitle": "קבל עדכונים על מבצעים ויעדים חדשים",
+      "placeholder": "הזן את כתובת האימייל שלך",
+      "button": "הירשם"
+    },
+    "featuredDestinations": {
+      "title": "יעדים מובילים",
+      "subtitle": "גלה את היעדים הפופולריים ביותר שלנו",
+      "viewAll": "צפה בכל היעדים"
+    },
+    "popularExperiences": {
+      "title": "חוויות פופולריות",
+      "subtitle": "גלה את החוויות הטובות ביותר ביעדים שלנו"
+    },
+    "callToAction": {
+      "title": "מוכן לתכנן את החופשה הבאה שלך?",
+      "subtitle": "צור קשר עם המומחים שלנו לקבלת הצעת מחיר מותאמת אישית",
+      "button": "קבל הצעת מחיר"
+    },
+    "recentTrips": {
+      "title": "טיולים אחרונים",
+      "subtitle": "הצץ בחוויות האחרונות של הלקוחות שלנו"
+    },
+    "recommendedPlaces": {
+      "title": "מקומות מומלצים לביקור",
+      "subtitle": "שפר את הטיול שלך עם יעדים ופעילויות נבחרות בקפידה"
+    }
+  },
+  "admin": {
+    "dashboard": {
+      "title": "לוח בקרה",
+      "totalTrips": "סהכ טיולים",
+      "activeHotels": "מלונות פעילים",
+      "pendingTrips": "טיולים בהמתנה",
+      "totalRevenue": "סהכ הכנסות",
+      "fromFirebase": "מתוך Firebase",
+      "awaitingClientResponse": "ממתין לתגובת הלקוח",
+      "yearToDate": "מתחילת השנה",
+      "recentTrips": "טיולים אחרונים",
+      "latestTripRequests": "בקשות טיול אחרונות וסטטוס",
+      "noTripsFound": "לא נמצאו טיולים. צור את הטיול הראשון שלך!",
+      "viewAllTrips": "צפה בכל הטיולים",
+      "quickActions": "פעולות מהירות",
+      "commonTasks": "משימות נפוצות וקיצורי דרך",
+      "manageHotels": "ניהול מלונות"
+    },
+    "destinations": {
+      "title": "יעדים",
+      "addDestination": "הוסף יעד",
+      "editDestination": "ערוך יעד",
+      "name": "שם",
+      "countryId": "מזהה מדינה",
+      "description": "תיאור",
+      "active": "פעיל",
+      "inactive": "לא פעיל",
+      "image": "תמונה",
+      "preview": "תצוגה מקדימה",
+      "errorLoading": "שגיאה בטעינת יעדים",
+      "addNewDestination": "הוסף יעד חדש",
+      "addNewDestinationDescription": "הזן את הפרטים עבור היעד החדש. תוכל להוסיף מלונות לאחר היצירה.",
+      "destination": "יעד",
+      "destinationPlaceholder": "לדוגמה: בנגקוק",
+      "checkIn": "צ'ק-אין",
+      "checkOut": "צ'ק-אאוט",
+      "datePlaceholder": "יום-חודש-שנה",
+      "recommended": "מומלץ",
+      "markAsRecommended": "סמן כיעד מומלץ",
+      "addDestinationButton": "הוסף יעד"
+    },
+    "recommendedPlaces": {
+      "title": "מקומות מומלצים",
+      "addPlace": "הוסף מקום",
+      "addNewPlace": "הוסף מקום מומלץ חדש",
+      "editPlace": "ערוך מקום מומלץ",
+      "placeName": "שם המקום",
+      "enterPlaceName": "הזן שם מקום",
+      "description": "תיאור",
+      "enterDescription": "הזן תיאור",
+      "photoUrl": "כתובת URL של התמונה",
+      "enterPhotoUrl": "הזן כתובת URL של התמונה",
+      "preview": "תצוגה מקדימה",
+      "selectDestination": "בחר יעד",
+      "searchPlaceholder": "חיפוש מקומות...",
+      "filterByDestination": "סינון לפי יעד",
+      "allDestinations": "כל היעדים",
+      "confirmDelete": "האם אתה בטוח שברצונך למחוק מקום זה?"
+    },
+    "hotels": {
+      "title": "ניהול מלונות",
+      "addNew": "הוסף מלון חדש",
+      "edit": "עריכת מלון",
+      "delete": "מחיקת מלון",
+      "details": "פרטי מלון",
+      "name": "שם המלון",
+      "description": "תיאור",
+      "address": "כתובת",
+      "city": "עיר",
+      "country": "מדינה",
+      "stars": "כוכבים",
+      "price": "מחיר לילה",
+      "amenities": "שירותים",
+      "photos": "תמונות",
+      "addPhoto": "הוסף תמונה",
+      "active": "פעיל",
+      "inactive": "לא פעיל",
+      "status": "סטטוס",
+      "save": "שמור",
+      "cancel": "ביטול",
+      "searchPlaceholder": "חפש מלונות...",
+      "filterByDestination": "סנן לפי יעד",
+      "allDestinations": "כל היעדים",
+      "confirmDelete": "האם אתה בטוח שברצונך למחוק מלון זה?",
+      "successCreate": "המלון נוצר בהצלחה",
+      "successUpdate": "המלון עודכן בהצלחה",
+      "successDelete": "המלון נמחק בהצלחה",
+      "errorCreate": "שגיאה ביצירת המלון",
+      "errorUpdate": "שגיאה בעדכון המלון",
+      "errorDelete": "שגיאה במחיקת המלון",
+      "errorLoad": "שגיאה בטעינת המלונות",
+      "form": {
+        "basicInfo": "מידע בסיסי",
+        "location": "מיקום",
+        "features": "תכונות",
+        "media": "מדיה",
+        "pricing": "תמחור",
+        "namePlaceholder": "הזן את שם המלון",
+        "descriptionPlaceholder": "הזן תיאור מפורט של המלון",
+        "addressPlaceholder": "הזן את כתובת המלון",
+        "cityPlaceholder": "הזן את העיר",
+        "countryPlaceholder": "הזן את המדינה",
+        "pricePlaceholder": "הזן את המחיר לילה",
+        "selectDestination": "בחר יעד",
+        "selectStars": "בחר דירוג כוכבים",
+        "photoUrlPlaceholder": "הזן URL של תמונה או העלה קובץ",
+        "uploadPhoto": "העלה תמונה",
+        "addAmenity": "הוסף שירות",
+        "amenityPlaceholder": "לדוגמה: WiFi חינם, בריכה, חדר כושר",
+        "isActive": "המלון פעיל ומוכן להזמנות",
+        "mapLocation": "מיקום במפה",
+        "searchMap": "חפש מיקום",
+        "dragMarker": "גרור את הסמן למיקום המדויק"
+      }
+    },
+    "trips": {
+      "title": "ניהול טיולים",
+      "addNew": "הוסף טיול חדש",
+      "edit": "ערוך טיול",
+      "delete": "מחק טיול",
+      "details": "פרטי טיול",
+      "status": {
+        "all": "כל הסטטוסים",
+        "draft": "טיוטה",
+        "pending": "ממתין",
+        "confirmed": "מאושר",
+        "completed": "הושלם",
+        "cancelled": "בוטל"
+      },
+      "clientName": "שם הלקוח",
+      "clientEmail": "אימייל הלקוח",
+      "clientPhone": "טלפון הלקוח",
+      "startDate": "תאריך התחלה",
+      "endDate": "תאריך סיום",
+      "duration": "משך",
+      "destinations": "יעדים",
+      "hotels": "מלונות",
+      "activities": "פעילויות",
+      "transportation": "תחבורה",
+      "totalPrice": "מחיר כולל",
+      "notes": "הערות",
+      "searchPlaceholder": "חפש טיולים...",
+      "filterByStatus": "סנן לפי סטטוס",
+      "filterByDestination": "סנן לפי יעד",
+      "allDestinations": "כל היעדים",
+      "confirmDelete": "האם אתה בטוח שברצונך למחוק טיול זה?",
+      "successCreate": "הטיול נוצר בהצלחה",
+      "successUpdate": "הטיול עודכן בהצלחה",
+      "successDelete": "הטיול נמחק בהצלחה",
+      "errorCreate": "שגיאה ביצירת הטיול",
+      "errorUpdate": "שגיאה בעדכון הטיול",
+      "errorDelete": "שגיאה במחיקת הטיול",
+      "errorLoad": "שגיאה בטעינת הטיולים",
+      "form": {
+        "basicInfo": "מידע בסיסי",
+        "itinerary": "מסלול",
+        "accommodations": "אירוח",
+        "transportation": "תחבורה",
+        "pricing": "תמחור",
+        "clientDetails": "פרטי לקוח",
+        "namePlaceholder": "הזן את שם הלקוח",
+        "emailPlaceholder": "הזן את אימייל הלקוח",
+        "phonePlaceholder": "הזן את טלפון הלקוח",
+        "notesPlaceholder": "הזן הערות או דרישות מיוחדות",
+        "addDestination": "הוסף יעד",
+        "selectDestination": "בחר יעד",
+        "addHotel": "הוסף מלון",
+        "selectHotel": "בחר מלון",
+        "addActivity": "הוסף פעילות",
+        "activityPlaceholder": "תיאור הפעילות",
+        "transportationType": "סוג תחבורה",
+        "addTransportation": "הוסף תחבורה",
+        "priceBreakdown": "פירוט מחירים",
+        "accommodationCost": "עלות אירוח",
+        "transportationCost": "עלות תחבורה",
+        "activitiesCost": "עלות פעילויות",
+        "additionalCost": "עלויות נוספות",
+        "discount": "הנחה",
+        "finalPrice": "מחיר סופי"
+      }
+    },
+    "layout": {
+      "dashboard": "לוח בקרה",
+      "destinations": "יעדים",
+      "hotels": "מלונות",
+      "trips": "טיולים",
+      "clients": "לקוחות",
+      "settings": "הגדרות",
+      "logout": "התנתקות",
+      "recommendedPlaces": "מקומות מומלצים",
+      "welcome": "ברוך הבא",
+      "backToSite": "חזרה לאתר"
+    }
+  },
+  "validation": {
+    "required": "שדה חובה",
+    "email": "אנא הזן כתובת אימייל תקינה",
+    "minLength": "אנא הזן לפחות {{min}} תווים",
+    "maxLength": "אנא הזן לא יותר מ-{{max}} תווים",
+    "passwordMatch": "הסיסמאות אינן תואמות",
+    "invalidDate": "אנא הזן תאריך תקין",
+    "invalidNumber": "אנא הזן מספר תקין",
+    "invalidPhone": "אנא הזן מספר טלפון תקין",
+    "invalidUrl": "אנא הזן כתובת URL תקינה",
+    "invalidPostalCode": "אנא הזן מיקוד תקין",
+    "invalidCreditCard": "אנא הזן מספר כרטיס אשראי תקין",
+    "invalidCvv": "אנא הזן קוד CVV תקין",
+    "invalidExpiryDate": "אנא הזן תאריך תפוגה תקין"
+  }
+}

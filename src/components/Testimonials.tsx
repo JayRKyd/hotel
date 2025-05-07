@@ -1,8 +1,10 @@
 
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const Testimonials = () => {
+  const { t } = useTranslation();
   const [activeIndex, setActiveIndex] = useState(0);
   
   // Auto-rotate testimonials
@@ -25,7 +27,7 @@ const Testimonials = () => {
   return (
     <section className="py-16 bg-gradient-to-b from-white to-maswadeh-light">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-12 font-playfair">Our Clients Testimonials</h2>
+        <h2 className="text-3xl font-bold text-center mb-12 font-playfair">{t('homePage.testimonials.title')}</h2>
         
         <div className="relative">
           <button 
@@ -59,7 +61,7 @@ const Testimonials = () => {
                         </div>
                         <div className="p-4">
                           <p className="text-sm text-gray-700 line-clamp-4">{item.text}</p>
-                          <a href="#" className="text-maswadeh-cyan hover:text-maswadeh-blue text-sm font-medium mt-2 inline-block transition-colors">Read More</a>
+                          <a href="#" className="text-maswadeh-cyan hover:text-maswadeh-blue text-sm font-medium mt-2 inline-block transition-colors">{t('common.next')}</a>
                         </div>
                       </div>
                     ))}

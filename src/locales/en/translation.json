@@ -1,0 +1,186 @@
+{
+  "common": {
+    "home": "Home",
+    "about": "About",
+    "contact": "Contact",
+    "quote": "Quote",
+    "detailedQuote": "Detailed Quote",
+    "admin": "Admin",
+    "login": "Login",
+    "logout": "Logout",
+    "search": "Search",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "save": "Save",
+    "edit": "Edit",
+    "delete": "Delete",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "loading": "Loading..."
+  },
+  "header": {
+    "adminPanel": "Admin Panel"
+  },
+  "footer": {
+    "allRightsReserved": "All Rights Reserved",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service"
+  },
+  "homePage": {
+    "hero": {
+      "title": "Discover the World with Maswadeh Tourism",
+      "subtitle": "Personalized travel experiences to any destination",
+      "cta": "Get a Quote"
+    },
+    "destinations": {
+      "title": "Popular Destinations",
+      "subtitle": "Discover our top destinations",
+      "viewAll": "View All Destinations"
+    },
+    "whyChooseUs": {
+      "title": "Why Choose Us",
+      "subtitle": "We offer the best service",
+      "reason1": {
+        "title": "Competitive Prices",
+        "description": "We offer the best prices for our travel packages"
+      },
+      "reason2": {
+        "title": "Personalized Service",
+        "description": "We tailor your trip to your needs and preferences"
+      },
+      "reason3": {
+        "title": "24/7 Support",
+        "description": "Our support team is available 24/7 to answer any questions"
+      }
+    },
+    "testimonials": {
+      "title": "What Our Clients Say",
+      "subtitle": "Success stories from satisfied customers"
+    }
+  },
+  "aboutPage": {
+    "title": "About Maswadeh Tourism",
+    "subtitle": "Our Story",
+    "mission": {
+      "title": "Our Mission",
+      "description": "Our mission is to provide exceptional travel experiences to every customer"
+    },
+    "vision": {
+      "title": "Our Vision",
+      "description": "Our vision is to be the leading travel agency in the industry"
+    },
+    "values": {
+      "title": "Our Values",
+      "description": "We believe in integrity, excellence, and customer service"
+    },
+    "team": {
+      "title": "Our Team",
+      "subtitle": "Meet the team behind Maswadeh Tourism"
+    }
+  },
+  "quotePage": {
+    "title": "Get a Quote",
+    "subtitle": "Fill out the form below to get a personalized quote",
+    "form": {
+      "name": "Full Name",
+      "email": "Email",
+      "phone": "Phone",
+      "destination": "Destination",
+      "departureDate": "Departure Date",
+      "returnDate": "Return Date",
+      "adults": "Adults",
+      "children": "Children",
+      "message": "Message",
+      "submit": "Submit Request",
+      "success": "Your request has been submitted successfully!",
+      "error": "There was an error submitting your request. Please try again."
+    }
+  },
+  "detailedQuotePage": {
+    "title": "Detailed Quote",
+    "subtitle": "Your quote details",
+    "offerDetails": {
+      "title": "Offer Details",
+      "offerNumber": "Offer Number",
+      "validUntil": "Valid Until",
+      "days": "days",
+      "hours": "hours",
+      "minutes": "minutes"
+    },
+    "pricing": {
+      "title": "Pricing",
+      "regularPrice": "Regular Price",
+      "specialPrice": "Special Price",
+      "discount": "Discount",
+      "perPerson": "per person"
+    },
+    "itinerary": {
+      "title": "Itinerary",
+      "day": "Day",
+      "accommodation": "Accommodation",
+      "nights": "nights"
+    },
+    "packageDetails": {
+      "title": "Package Details",
+      "included": "Included",
+      "notIncluded": "Not Included"
+    },
+    "terms": {
+      "title": "Terms",
+      "cancellationPolicy": "Cancellation Policy",
+      "bookingTerms": "Booking Terms"
+    },
+    "recommendedPlaces": {
+      "title": "Recommended Places to Visit",
+      "subtitle": "Enhance your trip with these carefully selected destinations and activities"
+    }
+  },
+  "admin": {
+    "dashboard": {
+      "title": "Dashboard",
+      "welcome": "Welcome to the Admin Panel",
+      "stats": {
+        "quotes": "Quotes",
+        "bookings": "Bookings",
+        "revenue": "Revenue"
+      }
+    },
+    "hotels": {
+      "title": "Hotels",
+      "addNew": "Add New Hotel",
+      "edit": "Edit Hotel",
+      "list": "Hotel List",
+      "form": {
+        "name": "Hotel Name",
+        "country": "Country",
+        "city": "City",
+        "description": "Description",
+        "stars": "Star Rating",
+        "price": "Price",
+        "amenities": "Amenities",
+        "location": "Location",
+        "image": "Image",
+        "active": "Active",
+        "featured": "Featured",
+        "create": "Create Hotel",
+        "update": "Update Hotel",
+        "searchHotel": "Search Hotel"
+      }
+    },
+    "trips": {
+      "title": "Trips",
+      "addNew": "Add New Trip",
+      "edit": "Edit Trip",
+      "list": "Trip List"
+    }
+  },
+  "recommendedPlaces": {
+    "noPlaces": "No recommended places available.",
+    "imagePlaceholder": "Image will be added later"
+  },
+  "languageSwitcher": {
+    "en": "English",
+    "he": "עברית"
+  }
+}

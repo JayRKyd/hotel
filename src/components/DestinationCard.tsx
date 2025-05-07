@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Star, ChevronLeft, ChevronRight, Map } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -6,8 +5,8 @@ import { Button } from '@/components/ui/button';
 interface HotelProps {
   name: string;
   stars: number;
-  checkIn: string;
-  checkOut: string;
+  checkIn?: string;
+  checkOut?: string;
   rating?: {
     score: number;
     label: string;
@@ -15,7 +14,8 @@ interface HotelProps {
   };
   description?: string;
   amenities?: string[];
-  image: string;
+  image?: string;
+  photoUrl?: string;
 }
 
 interface DestinationCardProps {
@@ -80,7 +80,7 @@ const DestinationCard: React.FC<DestinationCardProps> = ({
       
       {/* Hotel Image with Navigation */}
       <div className="relative">
-        <div className="h-64 bg-cover bg-center" style={{ backgroundImage: `url(${activeHotel.image})` }}>
+        <div className="h-64 bg-cover bg-center" style={{ backgroundImage: `url(${activeHotel.image || activeHotel.photoUrl || ''})` }}>
           {hotels.length > 1 && (
             <>
               <button 

@@ -1,0 +1,394 @@
+{
+  "common": {
+    "home": "בית",
+    "about": "אודות",
+    "contact": "צור קשר",
+    "quote": "הצעת מחיר",
+    "detailedQuote": "הצעת מחיר מפורטת",
+    "admin": "ניהול",
+    "login": "התחברות",
+    "logout": "התנתקות",
+    "search": "חיפוש",
+    "submit": "שלח",
+    "cancel": "ביטול",
+    "save": "שמור",
+    "edit": "ערוך",
+    "delete": "מחק",
+    "back": "חזרה",
+    "next": "הבא",
+    "previous": "הקודם",
+    "loading": "טוען...",
+    "success": "הצלחה",
+    "error": "שגיאה",
+    "address": "רחוב התיירות 123, בנגקוק, תאילנד",
+    "phone": "+1 (234) 567-890",
+    "email": "info@maswadeh.com",
+    "officeHours": "שעות פעילות",
+    "officeHoursDescription": "שני - שישי: 9:00 - 18:00\nשבת: 10:00 - 16:00\nראשון: סגור"
+  },
+  "header": {
+    "adminPanel": "פאנל ניהול"
+  },
+  "footer": {
+    "allRightsReserved": "כל הזכויות שמורות",
+    "privacyPolicy": "מדיניות פרטיות",
+    "termsOfService": "תנאי שימוש"
+  },
+  "homePage": {
+    "hero": {
+      "title": "גלה את העולם עם מסוואדה תיירות",
+      "subtitle": "חוויות נסיעה מותאמות אישית לכל יעד",
+      "cta": "קבל הצעת מחיר"
+    },
+    "destinations": {
+      "popularTitle": "יעדים פופולריים",
+      "destSubtitle": "גלה את היעדים המובילים שלנו",
+      "viewAll": "צפה בכל היעדים"
+    },
+    "whyChooseUs": {
+      "title": "למה להזמין דרכנו?",
+      "subtitle": "אנו מציעים את השירות הטוב ביותר",
+      "reason1": {
+        "heading": "הנחה להזמנות מוקדמות",
+        "description": "הזמן מוקדם ותהנה מהנחות מיוחדות להזמנות מראש"
+      },
+      "reason2": {
+        "heading": "שינוי הזמנה נוח",
+        "description": "מדיניות הזמנה גמישה לשקט הנפשי שלך"
+      },
+      "reason3": {
+        "heading": "אפשרות לתשלומי אשראי",
+        "description": "מגוון אפשרויות תשלום כולל תשלומים בכרטיס אשראי"
+      }
+    },
+    "testimonials": {
+      "title": "המלצות הלקוחות שלנו",
+      "subtitle": "סיפורי הצלחה מלקוחות מרוצים"
+    }
+  },
+  "aboutPage": {
+    "title": "אודות מסוואדה תיירות",
+    "subtitle": "השותף המהימן שלך לחוויות נסיעה בלתי נשכחות בתאילנד ומעבר לה מאז 2005",
+    "story": {
+      "title": "הסיפור שלנו",
+      "description": "נוסדה בשנת 2005 על ידי חובב טיולים אחמד מסוואדה, החברה שלנו החלה כמבצע קטן המוקדש להצגת היופי של תאילנד למטיילים בינלאומיים. עם תשוקה לחוויות נסיעה אותנטיות ומחויבות לשירות יוצא דופן, צמחנו במהירות להיות אחת מסוכנויות הנסיעות האמינות ביותר באזור.",
+      "history": "כיום, מסוואדה תיירות ונסיעות משרתת אלפי לקוחות מדי שנה, ומציעה פתרונות נסיעה מותאמים אישית ליחידים, משפחות וקבוצות תאגידיות. צוות היועצים המנוסה שלנו מביא ידע מקומי עמוק ומומחיות בתעשייה ליצירת מסעות בלתי נשכחים המותאמים להעדפות הייחודיות של כל לקוח.",
+      "expansion": "בעוד שהרחבנו את השירותים שלנו לכסות יעדים ברחבי העולם, הלב שלנו נשאר בתאילנד, שם אנו ממשיכים לפתח שותפויות בלעדיות עם המלונות, הנופש וספקי החוויות המקומיים הטובים ביותר."
+    },
+    "mission": {
+      "title": "הלקוח תחילה",
+      "description": "אנו נותנים עדיפות לצרכים ולהעדפות של הלקוחות שלנו, ומבטיחים שירות מותאם אישית בכל שלב."
+    },
+    "vision": {
+      "title": "מצוינות",
+      "description": "אנו שואפים למצוינות בכל היבט של השירות שלנו, מתכנון ועד ביצוע."
+    },
+    "passion": {
+      "title": "תשוקה",
+      "description": "התשוקה שלנו לטיולים מניעה אותנו ליצור חוויות יוצאות דופן עבור הלקוחות שלנו."
+    },
+    "reliability": {
+      "title": "אמינות",
+      "description": "אנו עומדים בהבטחות שלנו, ומבטיחים חוויית נסיעה אמינה וחסרת דאגות."
+    },
+    "values": {
+      "title": "הערכים שלנו",
+      "description": "אנו מאמינים ביושרה, מצוינות ושירות לקוחות"
+    },
+    "team": {
+      "title": "הכירו את הצוות שלנו",
+      "subtitle": "פגוש את הצוות שמאחורי מסוואדה תיירות",
+      "ahmad": "אחמד מסוואדה",
+      "ceo": "מייסד ומנכ\"ל",
+      "ahmadDescription": "עם ניסיון של למעלה מ-20 שנה בתעשיית התיירות, אחמד מוביל את החברה שלנו עם חזון ותשוקה.",
+      "sarah": "שרה ג'ונסון",
+      "operations": "ראש תפעול",
+      "sarahDescription": "שרה מבטיחה שכל טיול שאנו מארגנים מתנהל בצורה חלקה, עם תשומת לב לכל פרט.",
+      "michael": "מייקל צ'ן",
+      "consultant": "יועץ נסיעות בכיר",
+      "michaelDescription": "עם ידע נרחב על יעדים אסיאתיים, מייקל מתמחה ביצירת חוויות תרבותיות ייחודיות."
+    }
+  },
+  "quotePage": {
+    "title": "קבל הצעת מחיר",
+    "subtitle": "מלא את הטופס למטה לקבלת הצעת מחיר מותאמת אישית",
+    "form": {
+      "name": "שם מלא",
+      "email": "דוא\"ל",
+      "phone": "טלפון",
+      "destination": "יעד",
+      "departureDate": "תאריך יציאה",
+      "returnDate": "תאריך חזרה",
+      "adults": "מבוגרים",
+      "children": "ילדים",
+      "message": "הודעה",
+      "submit": "שלח בקשה",
+      "success": "בקשתך נשלחה בהצלחה!",
+      "error": "אירעה שגיאה בשליחת בקשתך. אנא נסה שוב.",
+      "days": "ימים",
+      "tripType": "סוג הטיול",
+      "selectTripType": "בחר סוג טיול",
+      "selectNumber": "בחר מספר",
+      "selectDestination": "בחר יעד",
+      "specialRequestsPlaceholder": "דרישות או העדפות מיוחדות...",
+      "tripTypes": {
+        "tourPackage": "חבילת טיול",
+        "customTrip": "טיול מותאם אישית",
+        "businessTravel": "נסיעת עסקים"
+      }
+    }
+  },
+  "detailedQuotePage": {
+    "title": "הצעת מחיר מפורטת",
+    "subtitle": "פרטי הצעת המחיר שלך",
+    "offerDetails": {
+      "title": "פרטי ההצעה",
+      "offerNumber": "מספר הצעה",
+      "validUntil": "בתוקף עד",
+      "days": "ימים",
+      "hours": "שעות",
+      "minutes": "דקות"
+    },
+    "pricing": {
+      "title": "מחיר",
+      "regularPrice": "מחיר רגיל",
+      "specialPrice": "מחיר מיוחד",
+      "discount": "הנחה",
+      "perPerson": "לאדם"
+    },
+    "itinerary": {
+      "title": "מסלול",
+      "day": "יום",
+      "accommodation": "מקום לינה",
+      "nights": "לילות"
+    },
+    "packageDetails": {
+      "title": "פרטי החבילה",
+      "included": "כלול",
+      "notIncluded": "לא כלול"
+    },
+    "terms": {
+      "title": "תנאים",
+      "cancellationPolicy": "מדיניות ביטולים",
+      "bookingTerms": "תנאי הזמנה"
+    },
+    "recommendedPlaces": {
+      "title": "מקומות מומלצים לביקור",
+      "subtitle": "שפר את הטיול שלך עם יעדים ופעילויות נבחרות בקפידה"
+    }
+  },
+  "admin": {
+    "dashboard": {
+      "title": "לוח בקרה",
+      "totalTripsCount": "סהכ טיולים",
+      "activeHotelsCount": "מלונות פעילים",
+      "pendingTrips": "טיולים בהמתנה",
+      "totalRevenue": "סהכ הכנסות",
+      "fromFirebase": "מתוך Firebase",
+      "awaitingClientResponse": "ממתין לתגובת הלקוח",
+      "yearToDate": "מתחילת השנה",
+      "recentTrips": "טיולים אחרונים",
+      "latestTripRequests": "בקשות טיול אחרונות וסטטוס",
+      "noTripsFound": "לא נמצאו טיולים. צור את הטיול הראשון שלך!",
+      "viewAllTrips": "צפה בכל הטיולים",
+      "quickActions": "פעולות מהירות",
+      "commonTasks": "משימות נפוצות וקיצורי דרך",
+      "manageHotels": "ניהול מלונות"
+    },
+    "destinations": {
+      "title": "יעדים",
+      "addDestinationButton": "הוסף יעד",
+      "editDestination": "ערוך יעד",
+      "name": "שם",
+      "countryId": "מזהה מדינה",
+      "description": "תיאור",
+      "active": "פעיל",
+      "inactive": "לא פעיל",
+      "image": "תמונה",
+      "preview": "תצוגה מקדימה",
+      "errorLoading": "שגיאה בטעינת יעדים",
+      "addNewDestination": "הוסף יעד חדש",
+      "addNewDestinationDescription": "הזן את הפרטים עבור היעד החדש. תוכל להוסיף מלונות לאחר היצירה.",
+      "destination": "יעד",
+      "destinationPlaceholder": "לדוגמה: בנגקוק",
+      "checkIn": "צ'ק-אין",
+      "checkOut": "צ'ק-אאוט",
+      "datePlaceholder": "יום-חודש-שנה",
+      "recommended": "מומלץ",
+      "markAsRecommended": "סמן כיעד מומלץ",
+      "addDestinationButton": "הוסף יעד"
+    },
+    "recommendedPlaces": {
+      "title": "מקומות מומלצים",
+      "addPlace": "הוסף מקום",
+      "addNewPlace": "הוסף מקום מומלץ חדש",
+      "editPlace": "ערוך מקום מומלץ",
+      "placeName": "שם המקום",
+      "enterPlaceName": "הזן שם מקום",
+      "description": "תיאור",
+      "enterDescription": "הזן תיאור",
+      "photoUrl": "כתובת URL של התמונה",
+      "enterPhotoUrl": "הזן כתובת URL של התמונה",
+      "preview": "תצוגה מקדימה",
+      "selectDestination": "בחר יעד",
+      "searchPlaceholder": "חיפוש מקומות...",
+      "filterByDestination": "סינון לפי יעד",
+      "allDestinations": "כל היעדים",
+      "confirmDelete": "האם אתה בטוח שברצונך למחוק מקום זה?"
+    },
+    "tripForm": {
+      "validation": {
+        "clientNameRequired": "שם לקוח נדרש"
+      },
+      "tabs": {
+        "tripDetails": "פרטי טיול",
+        "itinerary": "מסלול"
+      },
+      "clientName": "שם לקוח",
+      "enterClientName": "הזן שם לקוח",
+      "status": "סטטוס",
+      "statuses": {
+        "draft": "טיוטה",
+        "pending": "בהמתנה",
+        "confirmed": "מאושר",
+        "completed": "הושלם",
+        "cancelled": "בוטל"
+      },
+      "flightInformation": "פרטי טיסה",
+      "includeFlightDetails": "כלול פרטי טיסה",
+      "departureCity": "עיר יציאה",
+      "arrivalCity": "עיר הגעה",
+      "departureTime": "זמן יציאה",
+      "arrivalTime": "זמן הגעה",
+      "stopoverCity": "עיר עצירת ביניים",
+      "stopoverDuration": "משך עצירת ביניים",
+      "tripType": "סוג טיול",
+      "roundTrip": "הלוך ושוב",
+      "oneWay": "כיוון אחד",
+      "itinerary": "מסלול",
+      "addDestinationButton": "הוסף יעד",
+      "destination": "יעד",
+      "city": "עיר",
+      "checkInDate": "תאריך צ'ק-אין",
+      "checkOutDate": "תאריך צ'ק-אאוט",
+      "hotels": "מלונות",
+      "addHotel": "הוסף מלון",
+      "hotel": "מלון",
+      "roomType": "סוג חדר",
+      "numberOfRooms": "מספר חדרים",
+      "adults": "מבוגרים",
+      "children": "ילדים",
+      "infants": "תינוקות",
+      "totalPrice": "מחיר כולל (USD)",
+      "enterTotalPrice": "הזן מחיר כולל",
+      "updateTrip": "עדכן טיול",
+      "createTrip": "צור טיול"
+    },
+    "dashboard": {
+      "title": "לוח בקרה",
+      "welcome": "ברוך הבא לפאנל הניהול",
+      "stats": {
+        "quotes": "הצעות מחיר",
+        "bookings": "הזמנות",
+        "revenue": "הכנסה"
+      }
+    },
+    "hotels": {
+      "title": "ניהול מלונות",
+      "addNew": "הוסף מלון חדש",
+      "edit": "עריכת מלון",
+      "updateInfo": "עדכן מידע וחדרים של המלון",
+      "notFound": "מלון לא נמצא",
+      "backToHotels": "חזרה למלונות",
+      "list": "רשימת מלונות",
+      "editFormPlaceholder": "טופס עריכת מלון יופיע כאן",
+      "deleteConfirm": "האם אתה בטוח שברצונך למחוק מלון זה? פעולה זו אינה ניתנת לביטול.",
+      "deleteSuccess": "המלון נמחק בהצלחה",
+      "deleteError": "שגיאה במחיקת המלון",
+      "loadError": "שגיאה בטעינת המלונות",
+      "createSuccess": "המלון נוצר בהצלחה",
+      "createError": "שגיאה ביצירת המלון. אנא נסה שוב.",
+      "backToHotels": "חזרה למלונות",
+      "createDescription": "צור מלון חדש עם חדרים ופרטים",
+      "addedToFeatured": "המלון נוסף לרשימת המלונות המומלצים",
+      "removedFromFeatured": "המלון הוסר מרשימת המלונות המומלצים",
+      "form": {
+        "name": "שם המלון",
+        "country": "מדינה",
+        "city": "עיר",
+        "description": "תיאור",
+        "stars": "דירוג כוכבים",
+        "price": "מחיר",
+        "amenities": "שירותים",
+        "location": "מיקום",
+        "image": "תמונה",
+        "active": "פעיל",
+        "featured": "מומלץ",
+        "create": "צור מלון",
+        "update": "עדכן מלון",
+        "searchHotel": "חפש מלון",
+        "filterByCity": "סינון לפי עיר",
+        "filterByRating": "סינון לפי דירוג",
+        "filterByFeatured": "סינון לפי מומלצים",
+        "allCities": "כל הערים",
+        "allRatings": "כל הדירוגים",
+        "allHotels": "כל המלונות",
+        "notFeatured": "לא מומלץ"
+      }
+    },
+    "trips": {
+      "title": "טיולים",
+      "addNew": "הוסף טיול חדש",
+      "edit": "ערוך טיול",
+      "list": "רשימת טיולים",
+      "backToTrips": "חזרה לטיולים",
+      "updateDescription": "עדכן מידע ומסלול טיול",
+      "notFound": "טיול לא נמצא",
+      "loadError": "שגיאה בטעינת בקשות הצעת מחיר",
+      "markedAsQuoted": "סומן כמצוטט",
+      "markedAsNotQuoted": "סומן כלא מצוטט",
+      "quoteMarkedAsSent": "הצעת המחיר סומנה כנשלחה",
+      "quoteMarkedAsNotSent": "הצעת המחיר סומנה כלא נשלחה",
+      "updateStatusError": "שגיאה בעדכון סטטוס הצעת המחיר",
+      "searchPlaceholder": "חיפוש טיולים...",
+      "filterByStatus": "סינון לפי סטטוס",
+      "allQuotes": "כל הצעות המחיר",
+      "quoted": "מצוטט",
+      "notQuoted": "לא מצוטט",
+      "pending": "בהמתנה",
+      "client": "לקוח",
+      "contact": "יצירת קשר",
+      "destination": "יעד",
+      "travelDate": "תאריך נסיעה",
+      "travelers": "נוסעים",
+      "tripType": "סוג טיול",
+      "status": "סטטוס",
+      "noQuotesFound": "לא נמצאו בקשות להצעת מחיר",
+      "requested": "התבקש",
+      "duration": "משך",
+      "specialRequests": "בקשות מיוחדות",
+      "noSpecialRequests": "אין בקשות מיוחדות"
+    },
+    "mapPicker": {
+      "loadError": "לא ניתן לטעון את Google Maps",
+      "enterManually": "אנא הזן קואורדינטות באופן ידני או בדוק את הקונסול לפרטים.",
+      "latitude": "קו רוחב",
+      "longitude": "קו אורך",
+      "loading": "טוען מפה..."
+    }
+  },
+  "recommendedPlaces": {
+    "noPlaces": "אין מקומות מומלצים זמינים.",
+    "imagePlaceholder": "התמונה תתווסף בהמשך"
+  },
+  "validation": {
+    "nameMinLength": "השם חייב להיות לפחות 2 תווים",
+    "invalidEmail": "כתובת אימייל לא תקינה",
+    "phoneMinLength": "מספר הטלפון חייב להיות לפחות 10 ספרות",
+    "destinationRequired": "אנא בחר יעד",
+    "dateRequired": "אנא בחר תאריך",
+    "durationMinimum": "משך הנסיעה חייב להיות לפחות יום אחד",
+    "adultsMinimum": "נדרש לפחות מבוגר אחד",
+    "childrenNonNegative": "לא יכול להיות שלילי"
+  }
+}
