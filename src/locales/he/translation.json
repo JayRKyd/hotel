@@ -141,6 +141,9 @@
   "detailedQuotePage": {
     "title": "הצעת מחיר מפורטת",
     "subtitle": "פרטי הצעת המחיר שלך",
+    "backToHome": "חזרה לדף הבית",
+    "proposalReady": "הצעת המחיר שלך מוכנה!",
+    "dreamVacation": "חופשת החלומות שלך לתאילנד מתחילה בעוד:",
     "offerDetails": {
       "title": "פרטי ההצעה",
       "offerNumber": "מספר הצעה",
@@ -151,16 +154,44 @@
     },
     "pricing": {
       "title": "מחיר",
+      "packagePriceSummary": "סיכום מחיר החבילה",
       "regularPrice": "מחיר רגיל",
       "specialPrice": "מחיר מיוחד",
+      "specialOffer": "הצעה מיוחדת",
+      "youSave": "אתה חוסך",
       "discount": "הנחה",
-      "perPerson": "לאדם"
+      "perPerson": "לאדם",
+      "pricePerPerson": "*המחיר הוא לאדם על בסיס תפוסה זוגית"
+    },
+    "buttons": {
+      "passportUpload": "העלאת דרכון",
+      "routeMap": "מפת מסלול",
+      "viewHotelDetails": "צפה בפרטי המלון",
+      "downloadPdf": "הורד את מסמך פרטי המלון המלא"
+    },
+    "agent": {
+      "personalAgent": "סוכן הנסיעות האישי שלך",
+      "seniorConsultant": "יועץ נסיעות בכיר",
+      "phone": "טלפון",
+      "contactViaWhatsapp": "צור קשר באמצעות וואטסאפ"
     },
     "itinerary": {
       "title": "מסלול",
+      "yourItinerary": "המסלול שלך לתאילנד",
       "day": "יום",
       "accommodation": "מקום לינה",
-      "nights": "לילות"
+      "nights": "לילות",
+      "loadingDestinations": "טוען יעדים...",
+      "noDestinations": "אין יעדים זמינים",
+      "dailyActivities": "פעילויות יומיות",
+      "noHotelInfo": "אין מידע על מלון זמין עבור יעד זה"
+    },
+    "hotel": {
+      "amenities": "שירותים",
+      "roomType": "סוג חדר",
+      "standardRoom": "חדר סטנדרטי",
+      "maxOccupancy": "תפוסה מקסימלית",
+      "nightsStay": "לילות שהייה"
     },
     "packageDetails": {
       "title": "פרטי החבילה",
@@ -170,7 +201,9 @@
     "terms": {
       "title": "תנאים",
       "cancellationPolicy": "מדיניות ביטולים",
-      "bookingTerms": "תנאי הזמנה"
+      "cancellationText": "עיין בתנאי הביטול והשינוי הגמישים שלנו",
+      "bookingTerms": "תנאי הזמנה",
+      "bookingTermsText": "קרא וחתום על תנאי ההזמנה שלנו"
     },
     "recommendedPlaces": {
       "title": "מקומות מומלצים לביקור",

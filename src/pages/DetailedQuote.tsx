@@ -128,8 +128,8 @@ const DetailedQuote = () => {
             className="text-white hover:bg-white/20" 
             onClick={() => navigate('/')}
           >
-            <ArrowLeft size={16} className="mr-2" />
-            Back to Home
+            <ArrowLeft size={16} className="mr-1" />
+            {t('detailedQuotePage.backToHome')}
           </Button>
           <div>
             <h1 className="text-white text-2xl font-bold">Maswadeh Tourism</h1>
@@ -153,10 +153,10 @@ const DetailedQuote = () => {
             {/* Quote details section */}
             <div className="bg-white p-6 rounded-lg shadow-lg flex-1 border-l-4 border-maswadeh-cyan">
               <h2 className="text-maswadeh-blue text-3xl font-bold mb-4 font-playfair">
-                {userInfo.name}, your proposal is ready!
+                {userInfo.name}, {t('detailedQuotePage.proposalReady')}
               </h2>
               <p className="text-gray-700 mb-6 text-lg">
-                Your dream vacation to Thailand begins in:
+                {t('detailedQuotePage.dreamVacation')}
               </p>
               
               {/* Countdown timer with enhanced style */}
@@ -165,45 +165,45 @@ const DetailedQuote = () => {
                   <div className="bg-gradient-to-r from-maswadeh-cyan to-blue-500 text-white text-2xl font-bold rounded-lg p-4 min-w-[70px] shadow-md">
                     {userInfo.countdown.days}
                   </div>
-                  <p className="text-gray-600 mt-2 font-medium">Days</p>
+                  <p className="text-gray-600 mt-2 font-medium">{t('detailedQuotePage.offerDetails.days')}</p>
                 </div>
                 <div className="text-center">
                   <div className="bg-gradient-to-r from-maswadeh-cyan to-blue-500 text-white text-2xl font-bold rounded-lg p-4 min-w-[70px] shadow-md">
                     {userInfo.countdown.hours}
                   </div>
-                  <p className="text-gray-600 mt-2 font-medium">Hours</p>
+                  <p className="text-gray-600 mt-2 font-medium">{t('detailedQuotePage.offerDetails.hours')}</p>
                 </div>
                 <div className="text-center">
                   <div className="bg-gradient-to-r from-maswadeh-cyan to-blue-500 text-white text-2xl font-bold rounded-lg p-4 min-w-[70px] shadow-md">
                     {userInfo.countdown.minutes}
                   </div>
-                  <p className="text-gray-600 mt-2 font-medium">Minutes</p>
+                  <p className="text-gray-600 mt-2 font-medium">{t('detailedQuotePage.offerDetails.minutes')}</p>
                 </div>
               </div>
               
               {/* Price summary */}
               <div className="bg-maswadeh-light p-6 rounded-md mb-6">
-                <h3 className="text-xl font-bold text-maswadeh-blue mb-3">Package Price Summary</h3>
+                <h3 className="text-xl font-bold text-maswadeh-blue mb-3">{t('detailedQuotePage.pricing.packagePriceSummary')}</h3>
                 <div className="flex justify-between items-center mb-2">
-                  <span className="text-gray-700">Regular Price:</span>
+                  <span className="text-gray-700">{t('detailedQuotePage.pricing.regularPrice')}:</span>
                   <span className="text-gray-500 line-through">${userInfo.pricing.regularPrice}</span>
                 </div>
                 <div className="flex justify-between items-center mb-2">
-                  <span className="text-gray-700">Special Offer:</span>
+                  <span className="text-gray-700">{t('detailedQuotePage.pricing.specialOffer')}:</span>
                   <span className="text-2xl font-bold text-maswadeh-orange">${userInfo.pricing.specialPrice}</span>
                 </div>
                 <div className="flex justify-between items-center mb-2">
-                  <span className="text-gray-700">You Save:</span>
+                  <span className="text-gray-700">{t('detailedQuotePage.pricing.youSave')}:</span>
                   <span className="text-green-600 font-medium">${userInfo.pricing.regularPrice - userInfo.pricing.specialPrice} (${userInfo.pricing.discountPercentage}%)</span>
                 </div>
                 <div className="text-sm text-gray-600 mt-2">
-                  *Price is per person based on double occupancy
+                  {t('detailedQuotePage.pricing.pricePerPerson')}
                 </div>
               </div>
               
               <div className="bg-maswadeh-light p-4 rounded-md mb-6">
                 <p className="text-gray-700 flex items-center justify-between">
-                  <span className="font-medium">Offer Number:</span> 
+                  <span className="font-medium">{t('detailedQuotePage.offerDetails.offerNumber')}:</span> 
                   <span className="bg-white px-3 py-1 rounded-md font-bold text-maswadeh-blue">{userInfo.offerNumber}</span>
                 </p>
               </div>
@@ -211,11 +211,11 @@ const DetailedQuote = () => {
               <div className="flex flex-wrap gap-4 justify-center md:justify-start">
                 <Button className="flex items-center bg-maswadeh-orange text-white hover:bg-orange-600 shadow-md">
                   <Upload size={18} className="mr-2" />
-                  Passport Upload
+                  {t('detailedQuotePage.buttons.passportUpload')}
                 </Button>
                 <Button className="flex items-center bg-maswadeh-blue text-white hover:bg-blue-700 shadow-md">
                   <Map size={18} className="mr-2" />
-                  Route Map
+                  {t('detailedQuotePage.buttons.routeMap')}
                 </Button>
               </div>
             </div>
@@ -224,7 +224,7 @@ const DetailedQuote = () => {
             <div className="md:max-w-xs w-full">
               <Card className="overflow-hidden shadow-lg">
                 <div className="bg-gradient-to-r from-maswadeh-blue to-maswadeh-cyan p-4 text-white">
-                  <h3 className="text-xl font-bold">Your Personal Travel Agent</h3>
+                  <h3 className="text-xl font-bold">{t('detailedQuotePage.agent.personalAgent')}</h3>
                 </div>
                 <CardContent className="p-6">
                   <div className="flex flex-col items-center mb-6">
@@ -232,20 +232,20 @@ const DetailedQuote = () => {
                       <span className="text-maswadeh-blue text-3xl font-bold">Y</span>
                     </div>
                     <h4 className="font-bold text-lg">Yuval</h4>
-                    <p className="text-gray-600">Senior Travel Consultant</p>
+                    <p className="text-gray-600">{t('detailedQuotePage.agent.seniorConsultant')}</p>
                   </div>
                   
                   <div className="space-y-4">
                     <div className="flex items-center">
                       <Phone size={18} className="text-maswadeh-cyan mr-2" />
-                      <p>Phone: 888+</p>
+                      <p>{t('detailedQuotePage.agent.phone')}: 888+</p>
                     </div>
                     <a 
                       href="https://wa.me/888" 
                       className="flex items-center justify-center bg-[#25D366] hover:bg-green-500 text-white py-2 px-4 rounded-md w-full"
                     >
                       <MessageSquare size={18} className="mr-2" />
-                      Contact via WhatsApp
+                      {t('detailedQuotePage.agent.contactViaWhatsapp')}
                     </a>
                   </div>
                 </CardContent>
@@ -256,7 +256,7 @@ const DetailedQuote = () => {
           {/* Itinerary title */}
           <div className="mb-8 text-center">
             <h2 className="text-3xl font-bold text-maswadeh-blue font-playfair inline-block relative after:content-[''] after:absolute after:w-full after:h-1 after:bg-maswadeh-cyan after:bottom-0 after:left-0">
-              Your Thailand Itinerary
+              {t('detailedQuotePage.itinerary.yourItinerary')}
             </h2>
           </div>
           
@@ -264,7 +264,7 @@ const DetailedQuote = () => {
           <div className="space-y-6">
             {loading ? (
               <div className="text-center py-8">
-                <p className="text-gray-600">Loading destinations...</p>
+                <p className="text-gray-600">{t('detailedQuotePage.itinerary.loadingDestinations')}</p>
               </div>
             ) : error ? (
               <div className="text-center py-8">
@@ -272,7 +272,7 @@ const DetailedQuote = () => {
               </div>
             ) : destinations.length === 0 ? (
               <div className="text-center py-8">
-                <p className="text-gray-600">No destinations available</p>
+                <p className="text-gray-600">{t('detailedQuotePage.itinerary.noDestinations')}</p>
               </div>
             ) : (
               destinations.map((destination, index) => (
@@ -311,7 +311,7 @@ const DetailedQuote = () => {
                           
                           {/* Amenities */}
                           <div className="mb-4">
-                            <h4 className="text-sm font-semibold mb-2">Amenities:</h4>
+                            <h4 className="text-sm font-semibold mb-2">{t('detailedQuotePage.hotel.amenities')}:</h4>
                             <div className="flex flex-wrap gap-2">
                               {destination.hotel.amenities.map((amenity, i) => (
                                 <span key={i} className="inline-flex items-center px-2 py-1 bg-gray-100 rounded-md text-xs">
@@ -326,12 +326,12 @@ const DetailedQuote = () => {
                           
                           {/* Room Information */}
                           <div className="mb-4">
-                            <h4 className="text-sm font-semibold mb-2">Room Type:</h4>
-                            <p className="text-sm">{destination.hotel.roomType || 'Standard Room'}</p>
+                            <h4 className="text-sm font-semibold mb-2">{t('detailedQuotePage.hotel.roomType')}:</h4>
+                            <p className="text-sm">{destination.hotel.roomType || t('detailedQuotePage.hotel.standardRoom')}</p>
                             <div className="flex items-center mt-1">
                               <Users size={16} className="text-gray-500 mr-1" />
                               <span className="text-gray-600 text-sm">
-                                Max Occupancy: {destination.hotel.maxOccupancy || '2 Adults, 1 Child'}
+                                {t('detailedQuotePage.hotel.maxOccupancy')}: {destination.hotel.maxOccupancy || '2 Adults, 1 Child'}
                               </span>
                             </div>
                           </div>
@@ -340,7 +340,7 @@ const DetailedQuote = () => {
                           <div className="flex items-center mt-4">
                             <Clock size={16} className="text-gray-500 mr-1" />
                             <span className="text-gray-600 text-sm">
-                              {destination.nights || 3} nights stay
+                              {destination.nights || 3} {t('detailedQuotePage.hotel.nightsStay')}
                             </span>
                           </div>
                           
@@ -354,11 +354,11 @@ const DetailedQuote = () => {
                                 className="inline-flex items-center px-4 py-2 bg-maswadeh-cyan text-white rounded-md hover:bg-blue-600 transition-colors"
                               >
                                 <FileText size={16} className="mr-2" />
-                                View Hotel Details
+                                {t('detailedQuotePage.buttons.viewHotelDetails')}
                                 <Download size={16} className="ml-2" />
                               </a>
                               <p className="text-xs text-gray-500 mt-1">
-                                Download the complete hotel information PDF
+                                {t('detailedQuotePage.buttons.downloadPdf')}
                               </p>
                             </div>
                           )}
@@ -367,13 +367,13 @@ const DetailedQuote = () => {
                     </div>
                   ) : (
                     <div className="bg-gray-100 rounded-lg p-6 mb-6 text-center">
-                      <p className="text-gray-600">No hotel information available for this destination.</p>
+                      <p className="text-gray-600">{t('detailedQuotePage.itinerary.noHotelInfo')}</p>
                     </div>
                   )}
                   
                   {/* Daily activities section */}
                   <div className="mt-6">
-                    <h3 className="text-lg font-semibold mb-3">Daily Activities</h3>
+                    <h3 className="text-lg font-semibold mb-3">{t('detailedQuotePage.itinerary.dailyActivities')}</h3>
                     {/* Render activities here */}
                   </div>
                 </div>
@@ -387,7 +387,7 @@ const DetailedQuote = () => {
               <CardContent className="p-6">
                 <h3 className="text-xl font-semibold mb-4 flex items-center">
                   <CheckCircle className="text-green-500 mr-2" size={20} />
-                  Package Inclusions
+                  {t('detailedQuotePage.packageDetails.included')}
                 </h3>
                 <ul className="space-y-2">
                   {packageDetails.inclusions.map((item, index) => (
@@ -403,7 +403,7 @@ const DetailedQuote = () => {
             <Card>
               <CardContent className="p-6">
                 <h3 className="text-xl font-semibold mb-4 flex items-center text-gray-700">
-                  Not Included
+                  {t('detailedQuotePage.packageDetails.notIncluded')}
                 </h3>
                 <ul className="space-y-2">
                   {packageDetails.exclusions.map((item, index) => (
@@ -422,16 +422,16 @@ const DetailedQuote = () => {
             <Card className="max-w-md shadow-md hover:shadow-lg transition-shadow border-l-4 border-maswadeh-cyan p-4 flex items-center">
               <CheckCircle size={24} className="text-maswadeh-cyan mr-3 flex-shrink-0" />
               <div>
-                <h4 className="font-medium text-maswadeh-blue">Cancellation Policy</h4>
-                <p className="text-sm text-gray-600">Review our flexible cancellation and modification terms</p>
+                <h4 className="font-medium text-maswadeh-blue">{t('detailedQuotePage.terms.cancellationPolicy')}</h4>
+                <p className="text-sm text-gray-600">{t('detailedQuotePage.terms.cancellationText')}</p>
               </div>
             </Card>
             
             <Card className="max-w-md shadow-md hover:shadow-lg transition-shadow border-l-4 border-maswadeh-orange p-4 flex items-center">
               <CheckCircle size={24} className="text-maswadeh-orange mr-3 flex-shrink-0" />
               <div>
-                <h4 className="font-medium text-maswadeh-blue">Booking Terms</h4>
-                <p className="text-sm text-gray-600">Read and sign our booking terms and conditions</p>
+                <h4 className="font-medium text-maswadeh-blue">{t('detailedQuotePage.terms.bookingTerms')}</h4>
+                <p className="text-sm text-gray-600">{t('detailedQuotePage.terms.bookingTermsText')}</p>
               </div>
             </Card>
           </div>
