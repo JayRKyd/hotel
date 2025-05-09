@@ -109,7 +109,7 @@ export const hotelService: FirebaseService<Hotel> = {
 };
 
 // File handling service for hotels
-export const hotelImageService = {
+export const hotelFileService = {
   uploadImage: async (file: File): Promise<string> => {
     try {
       return new Promise((resolve, reject) => {
@@ -142,5 +142,52 @@ export const hotelImageService = {
       // Don't throw error for image deletion failures
       return false;
     }
+  },
+  
+  uploadPdf: async (file: File): Promise<string> => {
+    try {
+      if (!file) throw new Error('No file provided');
+      
+      // Check file size (max 10MB)
+      if (file.size > 10 * 1024 * 1024) {
+        throw new Error('PDF file size exceeds 10MB limit');
+      }
+      
+      // Check file type
+      if (file.type !== 'application/pdf') {
+        throw new Error('File must be a PDF');
+      }
+      
+      // Create a storage reference
+      const storageRef = ref(storage, `hotel-pdfs/${Date.now()}-${file.name}`);
+      
+      // Upload the file
+      const snapshot = await uploadBytes(storageRef, file);
+      
+      // Get the download URL
+      const downloadURL = await getDownloadURL(snapshot.ref);
+      
+      return downloadURL;
+    } catch (error) {
+      console.error('Error uploading PDF:', error);
+      throw handleFirebaseError(error);
+    }
+  },
+  
+  deletePdf: async (pdfUrl: string) => {
+    try {
+      if (!pdfUrl) return true;
+      
+      // If it's a Firebase Storage URL, delete it
+      if (pdfUrl.includes('firebase') || pdfUrl.startsWith('gs://')) {
+        const pdfRef = ref(storage, pdfUrl);
+        await deleteObject(pdfRef);
+      }
+      return true;
+    } catch (error) {
+      console.error('Error deleting PDF:', error);
+      // Don't throw error for PDF deletion failures
+      return false;
+    }
   }
-}; 
+};

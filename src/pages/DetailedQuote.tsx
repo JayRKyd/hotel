@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { Star, MapPin, Clock, Upload, Map, CheckCircle, Phone, MessageSquare, ArrowLeft, DollarSign, Users, Wifi, Coffee, Car } from 'lucide-react';
+import { Star, MapPin, Clock, Upload, Map, CheckCircle, Phone, MessageSquare, ArrowLeft, DollarSign, Users, Wifi, Coffee, Car, FileText, Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import WhyChooseUs from '@/components/WhyChooseUs';
@@ -15,7 +15,7 @@ import { destinationService } from '@/services/destinationService';
 import type { Destination } from '@/services/destinationService';
 import { tripService } from '@/services/tripService';
 import { hotelService } from '@/services/hotelService';
-import type { Hotel } from '@/services/hotelService';
+import type { Hotel } from '@/types/hotels';
 
 // Extended destination interface for the DetailedQuote component
 interface QuoteDestination extends Partial<Destination> {
@@ -86,12 +86,19 @@ const DetailedQuote = () => {
           const hotelsByDestination = featuredHotels.reduce((acc, hotel) => {
             const key = hotel.city;
             if (!acc[key]) {
+              // Convert Date objects to strings if they exist
+              const processedHotel = {
+                ...hotel,
+                createdAt: hotel.createdAt instanceof Date ? hotel.createdAt.toISOString() : hotel.createdAt,
+                updatedAt: hotel.updatedAt instanceof Date ? hotel.updatedAt.toISOString() : hotel.updatedAt
+              };
+              
               acc[key] = {
                 name: hotel.city,
                 country: hotel.country,
                 dates: '18-04-2025 - 21-04-2025', // Example dates
                 nights: 3, // Default value
-                hotel: hotel
+                hotel: processedHotel
               } as QuoteDestination;
             }
             return acc;
@@ -336,6 +343,25 @@ const DetailedQuote = () => {
                               {destination.nights || 3} nights stay
                             </span>
                           </div>
+                          
+                          {/* PDF Download Button - Only show if hotel has a PDF */}
+                          {destination.hotel.pdfUrl && (
+                            <div className="mt-4">
+                              <a
+                                href={destination.hotel.pdfUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center px-4 py-2 bg-maswadeh-cyan text-white rounded-md hover:bg-blue-600 transition-colors"
+                              >
+                                <FileText size={16} className="mr-2" />
+                                View Hotel Details
+                                <Download size={16} className="ml-2" />
+                              </a>
+                              <p className="text-xs text-gray-500 mt-1">
+                                Download the complete hotel information PDF
+                              </p>
+                            </div>
+                          )}
                         </div>
                       </div>
                     </div>

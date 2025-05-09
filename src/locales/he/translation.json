@@ -215,8 +215,7 @@
       "checkOut": "צ'ק-אאוט",
       "datePlaceholder": "יום-חודש-שנה",
       "recommended": "מומלץ",
-      "markAsRecommended": "סמן כיעד מומלץ",
-      "addDestinationButton": "הוסף יעד"
+      "markAsRecommended": "סמן כיעד מומלץ"
     },
     "recommendedPlaces": {
       "title": "מקומות מומלצים",
@@ -284,8 +283,7 @@
       "updateTrip": "עדכן טיול",
       "createTrip": "צור טיול"
     },
-    "dashboard": {
-      "title": "לוח בקרה",
+    "dashboardStats": {
       "welcome": "ברוך הבא לפאנל הניהול",
       "stats": {
         "quotes": "הצעות מחיר",
@@ -308,7 +306,6 @@
       "loadError": "שגיאה בטעינת המלונות",
       "createSuccess": "המלון נוצר בהצלחה",
       "createError": "שגיאה ביצירת המלון. אנא נסה שוב.",
-      "backToHotels": "חזרה למלונות",
       "createDescription": "צור מלון חדש עם חדרים ופרטים",
       "addedToFeatured": "המלון נוסף לרשימת המלונות המומלצים",
       "removedFromFeatured": "המלון הוסר מרשימת המלונות המומלצים",
@@ -390,5 +387,233 @@
     "durationMinimum": "משך הנסיעה חייב להיות לפחות יום אחד",
     "adultsMinimum": "נדרש לפחות מבוגר אחד",
     "childrenNonNegative": "לא יכול להיות שלילי"
+  },
+  "contactForm": {
+    "title": "צור קשר",
+    "subtitle": "שלח לנו הודעה ונחזור אליך בהקדם",
+    "name": "שם מלא",
+    "email": "דוא\"ל",
+    "phone": "טלפון",
+    "subject": "נושא",
+    "message": "הודעה",
+    "submit": "שלח הודעה",
+    "success": "הודעתך נשלחה בהצלחה! נחזור אליך בהקדם.",
+    "error": "אירעה שגיאה בשליחת ההודעה. אנא נסה שוב מאוחר יותר.",
+    "placeholders": {
+      "name": "הזן את שמך המלא",
+      "email": "הזן את כתובת הדוא\"ל שלך",
+      "phone": "הזן את מספר הטלפון שלך",
+      "subject": "הזן את נושא ההודעה",
+      "message": "הזן את הודעתך כאן..."
+    }
+  },
+  "newsletter": {
+    "title": "הירשם לניוזלטר שלנו",
+    "subtitle": "קבל עדכונים על מבצעים מיוחדים ויעדים חדשים",
+    "placeholder": "הזן את כתובת הדוא\"ל שלך",
+    "subscribe": "הירשם",
+    "success": "נרשמת בהצלחה לניוזלטר שלנו!",
+    "error": "אירעה שגיאה ברישום לניוזלטר. אנא נסה שוב.",
+    "alreadySubscribed": "כתובת דוא\"ל זו כבר רשומה לניוזלטר שלנו."
+  },
+  "breadcrumbs": {
+    "home": "בית",
+    "destinations": "יעדים",
+    "about": "אודות",
+    "contact": "צור קשר",
+    "quote": "הצעת מחיר",
+    "admin": "ניהול",
+    "hotels": "מלונות",
+    "trips": "טיולים",
+    "recommendedPlaces": "מקומות מומלצים"
+  },
+  "searchBar": {
+    "placeholder": "חפש יעדים, מלונות, או טיולים...",
+    "button": "חפש",
+    "noResults": "לא נמצאו תוצאות",
+    "searching": "מחפש...",
+    "recentSearches": "חיפושים אחרונים",
+    "clearRecent": "נקה חיפושים אחרונים"
+  },
+  "pagination": {
+    "previous": "הקודם",
+    "next": "הבא",
+    "page": "עמוד",
+    "of": "מתוך",
+    "showing": "מציג",
+    "results": "תוצאות",
+    "total": "סה\"כ"
+  },
+  "bookingForm": {
+    "title": "הזמן עכשיו",
+    "subtitle": "מלא את הפרטים להזמנת החופשה שלך",
+    "personalInfo": "פרטים אישיים",
+    "firstName": "שם פרטי",
+    "lastName": "שם משפחה",
+    "email": "דוא\"ל",
+    "phone": "טלפון",
+    "travelDetails": "פרטי נסיעה",
+    "destination": "יעד",
+    "hotel": "מלון",
+    "roomType": "סוג חדר",
+    "checkIn": "תאריך הגעה",
+    "checkOut": "תאריך עזיבה",
+    "adults": "מבוגרים",
+    "children": "ילדים",
+    "paymentInfo": "פרטי תשלום",
+    "cardNumber": "מספר כרטיס",
+    "cardHolder": "שם בעל הכרטיס",
+    "expiryDate": "תאריך תפוגה",
+    "cvv": "CVV",
+    "termsAgreement": "אני מסכים/ה לתנאי השימוש ולמדיניות הפרטיות",
+    "bookNow": "הזמן עכשיו",
+    "success": "ההזמנה שלך התקבלה בהצלחה! פרטי ההזמנה נשלחו לדוא\"ל שלך.",
+    "error": "אירעה שגיאה בעיבוד ההזמנה שלך. אנא נסה שוב או צור קשר עם שירות הלקוחות."
+  },
+  "filterForm": {
+    "title": "סנן תוצאות",
+    "price": "מחיר",
+    "priceRange": "טווח מחירים",
+    "min": "מינימום",
+    "max": "מקסימום",
+    "rating": "דירוג",
+    "stars": "כוכבים",
+    "amenities": "שירותים",
+    "wifi": "Wi-Fi חינם",
+    "pool": "בריכה",
+    "spa": "ספא",
+    "restaurant": "מסעדה",
+    "gym": "חדר כושר",
+    "parking": "חניה",
+    "airConditioning": "מיזוג אוויר",
+    "roomService": "שירות חדרים",
+    "apply": "החל סינון",
+    "reset": "אפס סינון",
+    "noResults": "לא נמצאו תוצאות התואמות את הסינון שלך. אנא נסה קריטריונים אחרים."
+  },
+  "destinationManager": {
+    "title": "ניהול יעדים",
+    "addDestination": "הוסף יעד חדש",
+    "editDestination": "ערוך יעד",
+    "deleteDestination": "מחק יעד",
+    "deleteConfirmation": "האם אתה בטוח שברצונך למחוק יעד זה? פעולה זו אינה ניתנת לביטול.",
+    "form": {
+      "name": "שם היעד",
+      "country": "מדינה",
+      "description": "תיאור",
+      "shortDescription": "תיאור קצר",
+      "image": "תמונה",
+      "featured": "מומלץ",
+      "popular": "פופולרי",
+      "active": "פעיל"
+    },
+    "success": {
+      "create": "היעד נוצר בהצלחה",
+      "update": "היעד עודכן בהצלחה",
+      "delete": "היעד נמחק בהצלחה"
+    },
+    "error": {
+      "create": "אירעה שגיאה ביצירת היעד",
+      "update": "אירעה שגיאה בעדכון היעד",
+      "delete": "אירעה שגיאה במחיקת היעד",
+      "load": "אירעה שגיאה בטעינת היעדים"
+    }
+  },
+  "contactPage": {
+    "title": "צור קשר",
+    "subtitle": "אנחנו כאן לענות על כל שאלה",
+    "officeLocation": "המשרד שלנו",
+    "address": "רחוב התיירות 123, בנגקוק, תאילנד",
+    "contactInfo": "פרטי התקשרות",
+    "phone": "טלפון",
+    "email": "דוא\"ל",
+    "businessHours": "שעות פעילות",
+    "weekdays": "שני - שישי: 9:00 - 18:00",
+    "saturday": "שבת: 10:00 - 16:00",
+    "sunday": "ראשון: סגור",
+    "sendMessage": "שלח לנו הודעה",
+    "followUs": "עקבו אחרינו",
+    "socialMedia": "מדיה חברתית"
+  },
+  "destinationsPage": {
+    "title": "יעדים",
+    "subtitle": "גלה את היעדים המדהימים שלנו ברחבי העולם",
+    "popular": "יעדים פופולריים",
+    "featured": "יעדים מומלצים",
+    "allDestinations": "כל היעדים",
+    "filter": "סנן לפי",
+    "continent": "יבשת",
+    "country": "מדינה",
+    "season": "עונה",
+    "tripType": "סוג טיול",
+    "noDestinations": "לא נמצאו יעדים התואמים את החיפוש שלך",
+    "viewMore": "צפה בעוד",
+    "exploreNow": "חקור עכשיו"
+  },
+  "destinationDetailPage": {
+    "overview": "סקירה כללית",
+    "highlights": "נקודות בולטות",
+    "attractions": "אטרקציות",
+    "hotels": "מלונות מומלצים",
+    "packages": "חבילות זמינות",
+    "reviews": "ביקורות",
+    "weather": "מזג אוויר",
+    "bestTimeToVisit": "הזמן הטוב ביותר לביקור",
+    "gettingThere": "איך להגיע",
+    "localCuisine": "מטבח מקומי",
+    "travelTips": "טיפים לטיול",
+    "gallery": "גלריה",
+    "relatedDestinations": "יעדים דומים",
+    "bookNow": "הזמן עכשיו",
+    "getQuote": "קבל הצעת מחיר"
+  },
+  "faqPage": {
+    "title": "שאלות נפוצות",
+    "subtitle": "תשובות לשאלות הנפוצות ביותר",
+    "categories": {
+      "general": "כללי",
+      "bookings": "הזמנות",
+      "payments": "תשלומים",
+      "cancellations": "ביטולים",
+      "travel": "טיולים",
+      "covid19": "קוביד-19"
+    },
+    "searchPlaceholder": "חפש שאלות נפוצות...",
+    "noResults": "לא נמצאו תוצאות לחיפוש שלך",
+    "stillHaveQuestions": "עדיין יש לך שאלות?",
+    "contactUs": "צור קשר"
+  },
+  "termsPage": {
+    "title": "תנאי שימוש",
+    "lastUpdated": "עודכן לאחרונה",
+    "introduction": "מבוא",
+    "services": "שירותים",
+    "userAccounts": "חשבונות משתמשים",
+    "bookings": "הזמנות",
+    "payments": "תשלומים",
+    "cancellations": "ביטולים",
+    "refunds": "החזרים",
+    "liability": "אחריות",
+    "intellectualProperty": "קניין רוחני",
+    "privacyPolicy": "מדיניות פרטיות",
+    "governingLaw": "חוק מנחה",
+    "changes": "שינויים בתנאי השימוש",
+    "contact": "יצירת קשר"
+  },
+  "privacyPage": {
+    "title": "מדיניות פרטיות",
+    "lastUpdated": "עודכן לאחרונה",
+    "introduction": "מבוא",
+    "informationWeCollect": "מידע שאנו אוספים",
+    "howWeUseInformation": "כיצד אנו משתמשים במידע",
+    "informationSharing": "שיתוף מידע",
+    "cookies": "עוגיות ומעקב",
+    "dataRetention": "שמירת נתונים",
+    "dataSecurity": "אבטחת נתונים",
+    "yourRights": "הזכויות שלך",
+    "childrenPrivacy": "פרטיות ילדים",
+    "internationalTransfers": "העברות בינלאומיות",
+    "changes": "שינויים במדיניות הפרטיות",
+    "contact": "יצירת קשר"
   }
 }

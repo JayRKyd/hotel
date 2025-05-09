@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
-import type { Hotel } from '@/services/hotelService';
+import type { Hotel } from '@/types/hotels';
+import { hotelFileService } from '@/services/hotelService';
 import { useTranslation } from 'react-i18next';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import { Upload, Plus, Trash, FileText, Loader, ChevronsUpDown } from 'lucide-react';
+import { Upload, Plus, Trash, FileText, Loader, ChevronsUpDown, FileUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -42,6 +43,7 @@ const hotelFormSchema = z.object({
   city: z.string().min(2, { message: 'City is required' }),
   description: z.string().min(10, { message: 'Description must be at least 10 characters' }),
   photoUrl: z.string().optional(),
+  pdfUrl: z.string().optional(),
   isActive: z.boolean().default(true),
   isFeatured: z.boolean().default(false),
   stars: z.number().min(1).max(5),
@@ -60,6 +62,9 @@ interface HotelFormProps {
 const HotelForm: React.FC<HotelFormProps> = ({ initialData, onSubmit, onCancel }) => {
   const { t } = useTranslation();
   const [imageFile, setImageFile] = useState<File | null>(null);
+  const [pdfFile, setPdfFile] = useState<File | null>(null);
+  const [pdfName, setPdfName] = useState<string>('');
+  const [pdfUrl, setPdfUrl] = useState<string>(initialData?.pdfUrl || '');
   const [imagePreview, setImagePreview] = useState<string>(initialData?.photoUrl || '');
   const [citiesList, setCitiesList] = useState<City[]>(cities);
   const [selectedCountry, setSelectedCountry] = useState<string>('');
@@ -86,6 +91,7 @@ const HotelForm: React.FC<HotelFormProps> = ({ initialData, onSubmit, onCancel }
       city: initialData?.city || '',
       description: initialData?.description || '',
       photoUrl: initialData?.photoUrl || '',
+      pdfUrl: initialData?.pdfUrl || '',
       isActive: initialData?.isActive ?? true,
       isFeatured: initialData?.isFeatured ?? false,
       stars: initialData?.stars || 3,
@@ -213,40 +219,68 @@ const HotelForm: React.FC<HotelFormProps> = ({ initialData, onSubmit, onCancel }
   
   // Handle image upload
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      const file = e.target.files[0];
-      setImageFile(file);
-      
-      const reader = new FileReader();
-      reader.onload = () => {
-        setImagePreview(reader.result as string);
-      };
-      reader.readAsDataURL(file);
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    setImageFile(file);
+    
+    const reader = new FileReader();
+    reader.onload = () => {
+      setImagePreview(reader.result as string);
+    };
+    reader.readAsDataURL(file);
+  };
+  
+  // Handle PDF upload
+  const handlePdfChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    
+    // Check file size (max 10MB)
+    if (file.size > 10 * 1024 * 1024) {
+      alert('PDF file size exceeds 10MB limit');
+      return;
     }
+    
+    // Check file type
+    if (file.type !== 'application/pdf') {
+      alert('File must be a PDF');
+      return;
+    }
+    
+    setPdfFile(file);
+    setPdfName(file.name);
   };
   
   // Handle form submission
   const onFormSubmit = async (data: HotelFormValues) => {
     try {
-      // Handle image upload if needed
-      let photoUrl = imagePreview;
+      let photoUrl = data.photoUrl;
+      let pdfUrl = data.pdfUrl || '';
       
+      // If there's a new image file, upload it
       if (imageFile) {
-        // Upload image logic here
+        photoUrl = await hotelFileService.uploadImage(imageFile);
       }
       
-      // Submit the form with all data
+      // If there's a new PDF file, upload it
+      if (pdfFile) {
+        pdfUrl = await hotelFileService.uploadPdf(pdfFile);
+      }
+      
+      // Submit the form data with the new image URL and PDF URL
       onSubmit({
         name: data.name,
-        stars: data.stars,
         country: data.country,
         city: data.city,
         description: data.description,
-        photoUrl,
-        location,
+        stars: data.stars,
+        price: data.price,
         isActive: data.isActive,
         isFeatured: data.isFeatured,
-        price: data.price,
+        photoUrl,
+        pdfUrl,
+        location,
         amenities: data.amenities
       });
     } catch (error) {
@@ -467,6 +501,59 @@ const HotelForm: React.FC<HotelFormProps> = ({ initialData, onSubmit, onCancel }
           </div>
           
           <div className="space-y-6">
+            {/* PDF Upload */}
+            <div className="mb-6">
+              <FormLabel>{t('admin.hotels.form.pdf') || 'Hotel Information PDF'}</FormLabel>
+              <p className="text-sm text-gray-500 mb-2">
+                Upload a PDF document (max 10MB) with detailed information about the hotel
+              </p>
+              
+              <div className="flex items-center gap-4">
+                <Button
+                  type="button"
+                  variant="outline"
+                  onClick={() => document.getElementById('hotel-pdf')?.click()}
+                  className="flex items-center gap-2"
+                >
+                  <FileUp size={16} />
+                  {t('admin.hotels.form.uploadPdf') || 'Upload PDF'}
+                </Button>
+                <Input
+                  id="hotel-pdf"
+                  type="file"
+                  accept="application/pdf"
+                  className="hidden"
+                  onChange={handlePdfChange}
+                />
+                
+                {pdfName && (
+                  <div className="flex items-center gap-2 text-sm">
+                    <FileText size={16} className="text-blue-500" />
+                    <span className="truncate max-w-[200px]">{pdfName}</span>
+                  </div>
+                )}
+                
+                {pdfUrl && !pdfName && (
+                  <div className="flex items-center gap-2 text-sm">
+                    <FileText size={16} className="text-green-500" />
+                    <span>PDF already uploaded</span>
+                    <a 
+                      href={pdfUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-blue-500 hover:underline"
+                    >
+                      View
+                    </a>
+                  </div>
+                )}
+              </div>
+              
+              <p className="text-xs text-gray-500 mt-2">
+                This PDF will be available for customers to download on the detailed quote page
+              </p>
+            </div>
+            
             {/* Location Map */}
             <div className="mb-6">
               <FormLabel>{t('admin.hotels.form.location')}</FormLabel>

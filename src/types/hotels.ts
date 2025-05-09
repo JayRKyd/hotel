@@ -17,6 +17,7 @@ export interface HotelFormData {
   city: string;
   description: string;
   photoUrl: string;
+  pdfUrl?: string;
   isActive: boolean;
   isFeatured: boolean;
   price: number;
@@ -33,6 +34,7 @@ export interface Hotel {
   checkOut?: string;
   image?: string;
   photoUrl?: string;
+  pdfUrl?: string;
   rating?: HotelRating;
   description?: string;
   amenities?: string[];
@@ -42,6 +44,8 @@ export interface Hotel {
   isActive?: boolean;
   isFeatured?: boolean;
   location?: Location;
+  roomType?: string;
+  maxOccupancy?: string;
   createdAt?: string;
   updatedAt?: string;
 }
