@@ -8,8 +8,8 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import AdminLayout from '@/components/admin/AdminLayout';
-import { hotelService, hotelImageService } from '@/services/hotelService';
-import { Hotel } from '@/services/hotelService';
+import { hotelService, hotelFileService } from '@/services/hotelService';
+import type { Hotel } from '@/types/hotels';
 import { toast } from '@/components/ui/use-toast';
 import { Switch } from "@/components/ui/switch";
 
@@ -29,7 +29,15 @@ const AdminHotels = () => {
   const loadHotels = async () => {
     try {
       const data = await hotelService.getAll();
-      setHotels(data);
+      
+      // Convert Date objects to strings to match the Hotel type from types/hotels.ts
+      const processedData = data.map(hotel => ({
+        ...hotel,
+        createdAt: hotel.createdAt instanceof Date ? hotel.createdAt.toISOString() : hotel.createdAt,
+        updatedAt: hotel.updatedAt instanceof Date ? hotel.updatedAt.toISOString() : hotel.updatedAt
+      }));
+      
+      setHotels(processedData);
     } catch (error) {
       console.error('Error loading hotels:', error);
       toast({
@@ -64,7 +72,7 @@ const AdminHotels = () => {
       try {
         // First delete the image if it exists
         if (photoUrl) {
-          await hotelImageService.deleteImage(photoUrl);
+          await hotelFileService.deleteImage(photoUrl);
         }
         
         // Then delete the hotel from Firebase
